@@ -2,7 +2,7 @@
   <PluginTest
     name="yaml"
     description="Convert YAML files to ES6 modules"
-    status="compatible"
+    :status="yaml.key === 'Content from YAML file' ? 'compatible' : 'error'"
   >
     <pre>{{ JSON.stringify(yaml, null, 2) }}</pre>
   </PluginTest>

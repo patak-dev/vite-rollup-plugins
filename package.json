@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "@rollup/plugin-beep": "0.2.0",
-    "@rollup/plugin-data-uri": "0.1.1",
     "@rollup/plugin-dsv": "2.0.1",
     "@rollup/plugin-graphql": "1.0.0",
     "@rollup/plugin-replace": "2.3.4",

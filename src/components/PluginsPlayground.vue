@@ -4,6 +4,7 @@
       name="alias"
       description="Define and resolve aliases for bundle dependencies"
       status="included"
+      link="https://vitejs.dev/config/#alias"
     />
     <PluginTest
       name="auto-install"
@@ -26,7 +27,12 @@
       description="Convert CommonJS modules to ES6"
       status="included"
     />
-    <PluginDataUri />
+    <PluginTest
+      name="data-uri"
+      description="Convert CommonJS modules to ES6"
+      status="covered"
+      link="https://github.com/vitejs/vite/issues/1428#issuecomment-757054035"
+    />
     <PluginDsv />
     <PluginTest
       name="dynamic-import-vars"
@@ -48,6 +54,7 @@
       name="image"
       description="Import JPG, PNG, GIF, SVG, and WebP files"
       status="covered"
+      link="https://vitejs.dev/guide/features.html#url-imports"
     />
     <PluginTest
       name="inject"
@@ -58,6 +65,7 @@
       name="json"
       description="Convert .json files to ES6 modules"
       status="included"
+      link="https://vitejs.dev/guide/features.html#json"
     />
     <PluginTest
       name="legacy"
@@ -73,6 +81,7 @@
       name="node-resolve"
       description="Locate and bundle third-party dependencies in node_modules"
       status="covered"
+      link="https://vitejs.dev/guide/dep-pre-bundling.html"
     />
     <PluginReplace />
     <PluginTest
@@ -90,6 +99,7 @@
       name="typescript"
       description="Integration between Rollup and Typescript"
       status="covered"
+      link="https://vitejs.dev/guide/features.html#typescript"
     />
     <PluginTest
       name="url"
@@ -105,6 +115,7 @@
       name="wasm"
       description="Import WebAssembly code with Rollup"
       status="covered"
+      link="https://vitejs.dev/guide/features.html#web-assembly"
     />
     <PluginYaml />
   </div>
@@ -113,7 +124,6 @@
 <script setup>
 import PluginTest from "./PluginTest.vue";
 import PluginBeep from "./plugins/PluginBeep.vue";
-import PluginDataUri from "./plugins/PluginDataUri.vue";
 import PluginDsv from "./plugins/PluginDsv.vue";
 import PluginGraphQL from "./plugins/PluginGraphQL.vue";
 import PluginReplace from "./plugins/PluginReplace.vue";

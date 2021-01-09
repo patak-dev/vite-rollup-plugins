@@ -1,13 +1,12 @@
 <template>
   <header>
-    <h1>Vite⚡</h1>
-    <h2>Next Generation Frontend Tooling</h2>
+    <h1>⚡ Vite compatible Rollup Plugins 🍣</h1>
   </header>
   <main>
     <div class="info">
       <h4>
         This is a list of official rollup plugins compatibility with Vite
-        v2.0.0-beta.7.
+        v2.0.0-beta.16.
       </h4>
       <p>
         This page is built using Vite, and it is intended to also be a
