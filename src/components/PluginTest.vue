@@ -124,6 +124,9 @@ a:active {
   border-radius: 0 5px 0 5px;
   width: 80px;
   text-align: center;
+  border: 1px solid #42b98366;
+  border-top: none;
+  border-right: none;
   background-color: #fbfbfb;
   box-shadow: inset 3px 3px 6px #f0f0f0, -3px -3px 6px #fbfbfb;
 }
