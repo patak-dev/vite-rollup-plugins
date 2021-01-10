@@ -63,10 +63,6 @@ const expanded = ref(false);
   box-shadow: 4px 4px 7px #e0e0e1, -4px -4px 7px #f6f6f6;
 }
 
-.plugin-test.incompatible {
-  background-color: #ffffea;
-}
-
 p {
   margin: 0;
 }
@@ -76,9 +72,26 @@ p {
   flex-direction: column;
   gap: 10px;
 }
+
 .test-header a {
   text-align: left;
   color: #42b983;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
 }
 
 .status {
@@ -96,6 +109,10 @@ p {
   background-color: #cc0000;
   color: white;
   box-shadow: initial;
+}
+
+.plugin-test.incompatible .status {
+  background-color: lightgoldenrodyellow;
 }
 
 button {

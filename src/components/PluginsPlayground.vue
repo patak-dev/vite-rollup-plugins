@@ -50,12 +50,7 @@
       description="Create HTML files to serve Rollup bundles"
       status="todo"
     />
-    <PluginTest
-      name="image"
-      description="Import JPG, PNG, GIF, SVG, and WebP files"
-      status="covered"
-      link="https://vitejs.dev/guide/features.html#url-imports"
-    />
+    <PluginImage />
     <PluginTest
       name="inject"
       description="Scan modules for global variables and injects import statements where necessary"
@@ -104,7 +99,8 @@
     <PluginTest
       name="url"
       description="Import files as data-URIs or ES Modules"
-      status="todo"
+      status="covered"
+      link="https://vitejs.dev/guide/features.html#url-imports"
     />
     <PluginTest
       name="virtual"
@@ -126,6 +122,7 @@ import PluginTest from "./PluginTest.vue";
 import PluginBeep from "./plugins/PluginBeep.vue";
 import PluginDsv from "./plugins/PluginDsv.vue";
 import PluginGraphQL from "./plugins/PluginGraphQL.vue";
+import PluginImage from "./plugins/PluginImage.vue";
 import PluginReplace from "./plugins/PluginReplace.vue";
 import PluginStrip from "./plugins/PluginStrip.vue";
 import PluginYaml from "./plugins/PluginYaml.vue";
