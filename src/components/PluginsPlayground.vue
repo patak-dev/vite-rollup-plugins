@@ -102,11 +102,7 @@
       status="covered"
       link="https://vitejs.dev/guide/features.html#url-imports"
     />
-    <PluginTest
-      name="virtual"
-      description="Load virtual modules from memory"
-      status="todo"
-    />
+    <PluginVirtual />
     <PluginTest
       name="wasm"
       description="Import WebAssembly code with Rollup"
@@ -126,6 +122,7 @@ import PluginImage from "./plugins/PluginImage.vue";
 import PluginReplace from "./plugins/PluginReplace.vue";
 import PluginStrip from "./plugins/PluginStrip.vue";
 import PluginYaml from "./plugins/PluginYaml.vue";
+import PluginVirtual from "./plugins/PluginVirtual.vue";
 </script>
 
 <style scoped>

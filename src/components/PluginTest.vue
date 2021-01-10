@@ -10,11 +10,13 @@
         <a
           :href="`https://github.com/rollup/plugins/tree/master/packages/${name}`"
           target="_blank"
+          rel="noopener"
           >{{ `@rollup/plugin-${name}` }}</a
         ><template v-if="enforce"
           ><a
             href="https://vitejs.dev/guide/api-plugin.html#plugin-ordering"
             target="_blank"
+            rel="noopener"
             ><span class="enforce"
               >using
               <code>{ enforce: '{{ enforce }}', ...{{ name }}() }</code></span
@@ -124,7 +126,7 @@ a:active {
   border-radius: 0 5px 0 5px;
   width: 80px;
   text-align: center;
-  border: 1px solid #42b98366;
+  border: 1px solid #42b98344;
   border-top: none;
   border-right: none;
   background-color: #fbfbfb;
@@ -138,6 +140,7 @@ a:active {
 
 .plugin-test.incompatible .status {
   background-color: lightgoldenrodyellow;
+  border: none;
 }
 
 button {

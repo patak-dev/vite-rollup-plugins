@@ -37,6 +37,7 @@
         <a
           href="https://github.com/matias-capeletto/vite-official-rollup-plugins-playground"
           target="_blank"
+          rel="noopener"
           >PRs welcome</a
         >
       </p>
