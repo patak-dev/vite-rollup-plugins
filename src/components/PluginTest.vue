@@ -11,6 +11,15 @@
           :href="`https://github.com/rollup/plugins/tree/master/packages/${name}`"
           target="_blank"
           >{{ `@rollup/plugin-${name}` }}</a
+        ><template v-if="enforce"
+          ><a
+            href="https://vitejs.dev/guide/api-plugin.html#plugin-ordering"
+            target="_blank"
+            ><span class="enforce"
+              >using
+              <code>{ enforce: '{{ enforce }}', ...{{ name }}() }</code></span
+            ></a
+          ></template
         >
       </p>
       <p>{{ description }}</p>
@@ -37,7 +46,8 @@ const props = defineProps({
   name: String,
   description: String,
   status: String,
-  link: String,
+  link: { type: String, default: null },
+  enforce: { type: String, default: null },
 });
 
 const { slots } = useContext();
@@ -92,6 +102,18 @@ a:hover {
 
 a:active {
   text-decoration: underline;
+}
+
+.enforce {
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 750px) {
+  .enforce {
+    padding-top: 5px;
+    padding-left: 0;
+    display: block;
+  }
 }
 
 .status {

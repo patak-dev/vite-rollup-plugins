@@ -2,6 +2,7 @@
   <PluginTest
     name="image"
     description="Import JPG, PNG, GIF, SVG, and WebP files"
+    enforce="pre"
     :status="
       base64.startsWith('data:image/png;base64,iVBORw0KGgoAAAANSU')
         ? 'compatible'
@@ -24,5 +25,9 @@ p {
   word-wrap: break-word;
   height: 300px;
   overflow-y: scroll;
+}
+img {
+  display: block;
+  margin: 0 auto;
 }
 </style>>
