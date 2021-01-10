@@ -15,15 +15,16 @@ export default {
   plugins: [
     /* incompatible
     {
-      enforce: 'pre', ...virtual({
+      ...virtual({
         batman: `export default 'na na na na na'`,
         // 'src/robin.js': `export default 'batmannnnn'`
-      })
+      }),
+      enforce: 'pre'
     },
     */
     {
+      ...image(),
       enforce: 'pre',
-      ...image()
     },
     vue(),
     beep(),
@@ -34,8 +35,8 @@ export default {
     }),
     yaml(),
     {
-      apply: 'build',
-      ...strip()
+      ...strip(),
+      apply: 'build'
     },
   ]
 }
