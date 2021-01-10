@@ -9,9 +9,11 @@
     "build": "vite build"
   },
   "dependencies": {
+    "nanoid": "3.1.20",
     "vue": "^3.0.5"
   },
   "devDependencies": {
+    "@rollup/plugin-auto-install": "2.1.0",
     "@rollup/plugin-beep": "0.2.0",
     "@rollup/plugin-dsv": "2.0.1",
     "@rollup/plugin-graphql": "1.0.0",

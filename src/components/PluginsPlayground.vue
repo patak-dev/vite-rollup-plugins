@@ -6,11 +6,7 @@
       status="included"
       link="https://vitejs.dev/config/#alias"
     />
-    <PluginTest
-      name="auto-install"
-      description="Automatically install dependencies that are imported by a bundle"
-      status="todo"
-    />
+    <PluginAutoInstall />
     <PluginTest
       name="babel"
       description="Compile your files with Babel"
@@ -115,6 +111,8 @@
 
 <script setup>
 import PluginTest from "./PluginTest.vue";
+
+import PluginAutoInstall from "./plugins/PluginAutoInstall.vue";
 import PluginBeep from "./plugins/PluginBeep.vue";
 import PluginDsv from "./plugins/PluginDsv.vue";
 import PluginGraphQL from "./plugins/PluginGraphQL.vue";

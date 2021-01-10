@@ -69,18 +69,20 @@ const hasDetails = computed(() => props.status !== "todo" && !!slots.default);
 
 const expanded = ref(false);
 
+const nameCode = computed(() => camelCase(props.name));
+
 const enforcedCode = () => {
   return `{
-      ...${props.name}(),
+      ...${nameCode.value}(),
       enforce: '${props.enforce}'
     }`;
 };
 const normalCode = () => {
-  return `${props.name}()`;
+  return `${nameCode.value}()`;
 };
 
 const viteConfigCode = computed(() => {
-  return `import ${props.name} from "@rollup/plugin-${props.name}"
+  return `import ${nameCode.value} from "@rollup/plugin-${props.name}"
           
 export default {
   plugins: [
@@ -89,6 +91,21 @@ export default {
 }
 `;
 });
+
+// move to util.js
+function camelCase(str) {
+  let dash = false;
+  return str.split("").reduce((p, c) => {
+    if (c === "-") {
+      dash = true;
+      return p;
+    } else {
+      const r = p + (dash ? c.toUpperCase() : c);
+      dash = false;
+      return r;
+    }
+  }, "");
+}
 </script>
 
 <style scoped>

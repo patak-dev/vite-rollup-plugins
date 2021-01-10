@@ -28,16 +28,13 @@
         ><span
           >Plugins that have not been added to the list yet,
           <a
-            href="https://github.com/matias-capeletto/vite-official-rollup-plugins-playground"
+            href="https://github.com/matias-capeletto/vite-rollup-plugins"
             target="_blank"
             rel="noopener"
             >PRs welcome</a
           >
         </span>
       </div>
-
-      <p></p>
-      <p></p>
     </div>
     <PluginsPlayground />
   </main>
