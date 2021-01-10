@@ -32,8 +32,10 @@ export default {
     replace({
       __replaced__: "correctly replaced"
     }),
-    strip(),
     yaml(),
-
+    {
+      apply: 'build',
+      ...strip()
+    },
   ]
 }

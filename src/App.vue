@@ -1,46 +1,43 @@
 <template>
   <header>
-    <h1>⚡ Vite compatible Rollup Plugins 🍣</h1>
+    <h1>⚡ Vite Rollup Plugins 🍣</h1>
   </header>
   <main>
     <div class="info">
-      <h4>
-        This is a list of official rollup plugins compatibility with Vite
-        v2.0.0-beta.16.
-      </h4>
+      <h3>
+        A list of official rollup plugins compatibility for Vite v2.0.0-beta.19.
+      </h3>
       <p>
-        This page is built using Vite, and it is intended to also be a
-        playground for all Compatible plugins. All of these plugins are being
-        used in the Vite config. Click on the <strong>compatible</strong> badge
-        of a plugin to see more info about it.
+        This page is built using
+        <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite 2</a>,
+        and it is intended to also be a playground for compatible rollup
+        plugins. All of these plugins are being used as part of building this
+        page. Click the <strong>+</strong> button of a compatible plugin to see
+        installation instructions and more info about how it is being tested.
       </p>
-      <p>
-        <strong>Covered</strong> features are part of Vite, so these plugins are
-        unneeded
-      </p>
-      <p>
-        <strong>Included</strong> plugins are already shipped out of the box
-        with Vite
-      </p>
+      <div class="legend">
+        <span><strong>Covered</strong></span>
+        <span>Features that are part of Vite. These plugins are unneeded</span>
+        <span><strong>Included</strong></span
+        ><span>Plugins that are already shipped out of the box with Vite</span>
+        <span><strong>Compatible</strong></span
+        ><span>Plugins that work properly when used with Vite</span>
+        <span><strong>Incompatible</strong></span
+        ><span>Plugins that can not currently be used with Vite</span>
+        <span><strong>todo</strong></span
+        ><span
+          >Plugins that have not been added to the list yet,
+          <a
+            href="https://github.com/matias-capeletto/vite-official-rollup-plugins-playground"
+            target="_blank"
+            rel="noopener"
+            >PRs welcome</a
+          >
+        </span>
+      </div>
+
       <p></p>
-      <p>
-        <strong>Compatible</strong> plugins are working properly when used in
-        Vite
-      </p>
-      <p>
-        <strong>Incompatible</strong> plugins can not currently be used with
-        Vite
-      </p>
-      <p>
-        Plugins marked as <strong>todo</strong> have not been added to the list
-        yet,
-        <a
-          href="https://github.com/matias-capeletto/vite-official-rollup-plugins-playground"
-          target="_blank"
-          rel="noopener"
-          >PRs welcome</a
-        >
-      </p>
+      <p></p>
     </div>
     <PluginsPlayground />
   </main>
@@ -67,11 +64,17 @@ header {
   max-width: 650px;
   text-align: left;
   margin: 10px auto;
+  padding: 0px 20px;
   margin-top: 60px;
   margin-bottom: 60px;
   text-align: left;
 }
 
+.legend {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px 10px;
+}
 a {
   color: #42b983;
 }

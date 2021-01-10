@@ -12,7 +12,7 @@
 <script setup>
 import PluginTest from "../PluginTest.vue";
 
-// debugger;
+debugger;
 
 console.log("this will be removed");
 </script>

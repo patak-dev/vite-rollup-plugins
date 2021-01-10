@@ -11,20 +11,28 @@
           :href="`https://github.com/rollup/plugins/tree/master/packages/${name}`"
           target="_blank"
           rel="noopener"
-          >{{ `@rollup/plugin-${name}` }}</a
+          >{{ name }}</a
         ><template v-if="enforce"
           ><a
             href="https://vitejs.dev/guide/api-plugin.html#plugin-ordering"
             target="_blank"
             rel="noopener"
-            ><span class="enforce"
-              >using
-              <code>{ enforce: '{{ enforce }}', ...{{ name }}() }</code></span
+            ><span class="enforce">
+              <code>enforce: '{{ enforce }}'</code></span
             ></a
           ></template
         >
       </p>
       <p>{{ description }}</p>
+      <template v-if="status === 'compatible' && expanded">
+        <div class="install-code">
+          <pre><code>{{ `$ npm i -D @rollup/plugin-${name}` }}</code></pre>
+        </div>
+        <div class="config-code">
+          <p class="file-name">vite.config.js</p>
+          <pre><code>{{ viteConfigCode }}</code></pre>
+        </div>
+      </template>
     </div>
     <p class="status">
       <button v-if="hasDetails" @click="expanded = !expanded" class="expand">
@@ -35,8 +43,11 @@
         {{ status }}
       </template>
     </p>
-    <div class="details" v-if="expanded && hasDetails">
-      <slot />
+    <div class="test" v-if="expanded && hasDetails">
+      <p>Test</p>
+      <div class="details">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
@@ -57,6 +68,27 @@ const { slots } = useContext();
 const hasDetails = computed(() => props.status !== "todo" && !!slots.default);
 
 const expanded = ref(false);
+
+const enforcedCode = () => {
+  return `{
+      ...${props.name}(),
+      enforce: '${props.enforce}'
+    }`;
+};
+const normalCode = () => {
+  return `${props.name}()`;
+};
+
+const viteConfigCode = computed(() => {
+  return `import ${props.name} from "@rollup/plugin-${props.name}"
+          
+export default {
+  plugins: [
+    ${props.enforce ? enforcedCode() : normalCode()},
+  ]
+}
+`;
+});
 </script>
 
 <style scoped>
@@ -160,12 +192,30 @@ button:hover {
   box-shadow: inset 3px 3px 6px #f0f0f0, -3px -3px 6px #fbfbfb;
 }
 
-.details {
+.test {
   margin-top: 20px;
-  border-top: 1px solid #fbfbfb;
+}
+.details,
+.install-code,
+.config-code {
+  margin-top: 10px;
   background-color: #fbfbfb;
   box-shadow: inset 3px 3px 6px #f0f0f0, -3px -3px 6px #fbfbfb;
   border-radius: 10px;
   padding: 20px;
+  position: relative;
+  padding: 5px 20px;
+}
+
+.details {
+  margin-top: 20px;
+}
+
+.file-name {
+  position: absolute;
+  font-size: 0.9em;
+  color: gray;
+  top: 15px;
+  right: 15px;
 }
 </style>
