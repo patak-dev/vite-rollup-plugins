@@ -5,8 +5,11 @@ A compatibility list and test playground
 https://vite-rollup-plugins.patak.dev
 
 ✅ status for each official plugin
+
 ⚠️ enforce needed badge
+
 🛠️ install instructions
+
 🧪 compatible plugins are used in the page
 
 ## Run it locally
