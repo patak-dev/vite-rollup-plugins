@@ -11,7 +11,7 @@ import inject from '@rollup/plugin-inject'
 import replace from '@rollup/plugin-replace'
 // import strip from '@rollup/plugin-strip'
 import yaml from '@rollup/plugin-yaml'
-// import virtual from '@rollup/plugin-virtual'
+import virtual from '@rollup/plugin-virtual'
 
 /**
  * @type {import('vite').UserConfig}
@@ -19,13 +19,6 @@ import yaml from '@rollup/plugin-yaml'
 export default {
   plugins: [
     /* todo
-    {
-      ...virtual({
-        batman: `export default 'na na na na na'`,
-        // 'src/robin.js': `export default 'batmannnnn'`
-      }),
-      enforce: 'pre'
-    },
     {
       ...autoInstall(),
       enforce: 'pre',
@@ -55,5 +48,9 @@ export default {
       __replaced__: "correctly replaced"
     }),
     yaml(),
+    virtual({
+      batman: `export default 'na na na na na'`,
+      'src/robin.js': `export default 'batmannnnn'`
+    }),
   ]
 }
