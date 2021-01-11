@@ -156,7 +156,8 @@ a:active {
 }
 
 .enforce {
-  padding-left: 20px;
+  padding-left: 30px;
+  font-size: 1.2rem;
 }
 
 .status {

@@ -12,7 +12,8 @@
     <PluginTest
       name="buble"
       description="Compile ES2015 with buble"
-      status="todo"
+      status="covered"
+      link="https://github.com/vitejs/vite/tree/main/packages/plugin-legacy"
     />
     <PluginTest
       name="commonjs"
@@ -79,7 +80,8 @@
     <PluginTest
       name="sucrase"
       description="Compile TypeScript, Flow, JSX, etc with Sucrase"
-      status="todo"
+      status="covered"
+      link="https://vitejs.dev/guide/features.html"
     />
     <PluginStrip />
     <PluginTest
