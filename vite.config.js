@@ -5,6 +5,7 @@ import beep from '@rollup/plugin-beep'
 import dsv from '@rollup/plugin-dsv'
 import graphql from '@rollup/plugin-graphql'
 import image from '@rollup/plugin-image'
+import inject from '@rollup/plugin-inject'
 import replace from '@rollup/plugin-replace'
 import strip from '@rollup/plugin-strip'
 import yaml from '@rollup/plugin-yaml'
@@ -39,6 +40,9 @@ export default {
     beep(),
     dsv(),
     graphql(),
+    inject({
+      nanoid: ['nanoid', 'nanoid']
+    }),
     replace({
       __replaced__: "correctly replaced"
     }),

@@ -44,11 +44,7 @@
       status="todo"
     />
     <PluginImage />
-    <PluginTest
-      name="inject"
-      description="Scan modules for global variables and injects import statements where necessary"
-      status="todo"
-    />
+    <PluginInject />
     <PluginTest
       name="json"
       description="Convert .json files to ES6 modules"
@@ -116,6 +112,7 @@ import PluginBeep from "./plugins/PluginBeep.vue";
 import PluginDsv from "./plugins/PluginDsv.vue";
 import PluginGraphQL from "./plugins/PluginGraphQL.vue";
 import PluginImage from "./plugins/PluginImage.vue";
+import PluginInject from "./plugins/PluginInject.vue";
 import PluginReplace from "./plugins/PluginReplace.vue";
 import PluginStrip from "./plugins/PluginStrip.vue";
 import PluginYaml from "./plugins/PluginYaml.vue";
