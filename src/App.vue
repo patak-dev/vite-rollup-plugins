@@ -58,6 +58,14 @@
       </div>
     </div>
     <PluginsPlayground />
+    <footer>
+      <a href="https://twitter.com/patak_js" target="_blank" rel="noopener"
+        >@patak_js</a
+      >
+      •
+      <a href="https://patak.dev" target="_blank" rel="noopener">patak.dev</a> •
+      MIT Licensed • Copyright © 2021 Matias Capeletto
+    </footer>
   </main>
 </template>
 
@@ -97,5 +105,11 @@ header {
 }
 a {
   color: #42b983;
+}
+
+footer {
+  text-align: center;
+  margin: 40px;
+  margin-top: 80px;
 }
 </style>
