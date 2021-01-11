@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 // import babel from '@rollup/plugin-babel'
 import beep from '@rollup/plugin-beep'
 import dsv from '@rollup/plugin-dsv'
+// import eslint from '@rollup/plugin-eslint'
 import graphql from '@rollup/plugin-graphql'
 import image from '@rollup/plugin-image'
 import inject from '@rollup/plugin-inject'
@@ -43,6 +44,7 @@ export default {
       enforce: 'pre',
     },
     vue(),
+    // eslint(),
     beep(),
     dsv(),
     graphql(),

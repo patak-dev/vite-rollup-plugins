@@ -32,11 +32,7 @@
       description="Resolving dynamic imports that contain variables."
       status="included"
     />
-    <PluginTest
-      name="eslint"
-      description="Verify entry point and all imported files with ESLint"
-      status="todo"
-    />
+    <PluginEslint />
     <PluginGraphQL />
     <PluginTest
       name="html"
@@ -106,6 +102,7 @@ import PluginAutoInstall from "./plugins/PluginAutoInstall.vue";
 import PluginBabel from "./plugins/PluginBabel.vue";
 import PluginBeep from "./plugins/PluginBeep.vue";
 import PluginDsv from "./plugins/PluginDsv.vue";
+import PluginEslint from "./plugins/PluginEslint.vue";
 import PluginGraphQL from "./plugins/PluginGraphQL.vue";
 import PluginImage from "./plugins/PluginImage.vue";
 import PluginInject from "./plugins/PluginInject.vue";
