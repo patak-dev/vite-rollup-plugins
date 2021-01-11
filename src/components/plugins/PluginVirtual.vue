@@ -2,7 +2,7 @@
   <PluginTest
     name="virtual"
     description="A Rollup plugin which loads virtual modules from memory"
-    status="incompatible"
+    status="todo"
     link="https://vitejs.dev/guide/api-plugin.html#serving-a-virtual-file"
   >
     <p>

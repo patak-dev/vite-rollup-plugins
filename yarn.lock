@@ -282,6 +282,11 @@
     estree-walker "^1.0.1"
     magic-string "^0.25.5"
 
+"@rollup/plugin-legacy@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-legacy/-/plugin-legacy-2.0.0.tgz#5b89bb28054c6792a39288c282cd2a37430fadff"
+  integrity sha512-1l+X4aJ1iiiWDAE4zPlGo3h+zetbmExj7wYiwrYxiI0DhutOmpdxAcVQ3FOLiStmayeGv1QSwKCbeiujI9u4Fw==
+
 "@rollup/plugin-replace@2.3.4":
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-replace/-/plugin-replace-2.3.4.tgz#7dd84c17755d62b509577f2db37eb524d7ca88ca"

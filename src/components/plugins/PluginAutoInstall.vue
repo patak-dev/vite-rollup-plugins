@@ -3,7 +3,7 @@
     name="auto-install"
     description="Automatically install dependencies that are imported by a bundle"
     enforce="pre"
-    status="incompatible"
+    status="todo"
   >
     <p>Fails at build time</p>
     <p>

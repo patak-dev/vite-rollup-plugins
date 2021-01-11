@@ -51,11 +51,7 @@
       status="included"
       link="https://vitejs.dev/guide/features.html#json"
     />
-    <PluginTest
-      name="legacy"
-      description="Add export declarations to legacy non-module scripts"
-      status="todo"
-    />
+    <PluginLegacy />
     <PluginTest
       name="multi-entry"
       description="Use multiple entry points for a bundle"
@@ -113,6 +109,7 @@ import PluginDsv from "./plugins/PluginDsv.vue";
 import PluginGraphQL from "./plugins/PluginGraphQL.vue";
 import PluginImage from "./plugins/PluginImage.vue";
 import PluginInject from "./plugins/PluginInject.vue";
+import PluginLegacy from "./plugins/PluginLegacy.vue";
 import PluginReplace from "./plugins/PluginReplace.vue";
 import PluginStrip from "./plugins/PluginStrip.vue";
 import PluginYaml from "./plugins/PluginYaml.vue";

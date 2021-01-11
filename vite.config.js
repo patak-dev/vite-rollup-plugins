@@ -6,8 +6,9 @@ import dsv from '@rollup/plugin-dsv'
 import graphql from '@rollup/plugin-graphql'
 import image from '@rollup/plugin-image'
 import inject from '@rollup/plugin-inject'
+// import legacy from '@rollup/plugin-legacy'
 import replace from '@rollup/plugin-replace'
-import strip from '@rollup/plugin-strip'
+// import strip from '@rollup/plugin-strip'
 import yaml from '@rollup/plugin-yaml'
 // import virtual from '@rollup/plugin-virtual'
 
@@ -16,7 +17,7 @@ import yaml from '@rollup/plugin-yaml'
  */
 export default {
   plugins: [
-    /* incompatible
+    /* todo
     {
       ...virtual({
         batman: `export default 'na na na na na'`,
@@ -28,9 +29,14 @@ export default {
       ...autoInstall(),
       enforce: 'pre',
     },
-    */
-    /* todo
-      babel({ babelHelpers: 'bundled' }),
+    babel({ babelHelpers: 'bundled' }),
+    {
+      ...strip(),
+      apply: 'build'
+    },
+    legacy({
+      'src/assets/legacy.js': 'legacyLibrary',
+    }),
     */
     {
       ...image(),
@@ -47,9 +53,5 @@ export default {
       __replaced__: "correctly replaced"
     }),
     yaml(),
-    {
-      ...strip(),
-      apply: 'build'
-    },
   ]
 }
