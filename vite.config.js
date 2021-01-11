@@ -1,5 +1,5 @@
 import vue from '@vitejs/plugin-vue'
-import autoInstall from '@rollup/plugin-auto-install'
+// import autoInstall from '@rollup/plugin-auto-install'
 import beep from '@rollup/plugin-beep'
 import dsv from '@rollup/plugin-dsv'
 import graphql from '@rollup/plugin-graphql'
@@ -22,11 +22,11 @@ export default {
       }),
       enforce: 'pre'
     },
-    */
     {
       ...autoInstall(),
       enforce: 'pre',
     },
+    */
     {
       ...image(),
       enforce: 'pre',

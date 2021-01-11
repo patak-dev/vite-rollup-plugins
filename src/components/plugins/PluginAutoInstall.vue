@@ -3,8 +3,9 @@
     name="auto-install"
     description="Automatically install dependencies that are imported by a bundle"
     enforce="pre"
-    status="compatible"
+    status="incompatible"
   >
+    <p>Fails at build time</p>
     <p>
       Test it by uninstalling nanoid from the project. The auto-install plugin
       will add it back

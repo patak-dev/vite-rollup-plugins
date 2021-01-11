@@ -173,7 +173,7 @@ a:active {
   right: 0px;
   padding: 8px 20px;
   border-radius: 0 5px 0 5px;
-  width: 80px;
+  width: 90px;
   text-align: center;
   border: 1px solid #42b98344;
   border-top: none;
@@ -188,7 +188,7 @@ a:active {
 }
 
 .plugin-test.incompatible .status {
-  background-color: lightgoldenrodyellow;
+  background-color: lightyellow;
   border: none;
 }
 
