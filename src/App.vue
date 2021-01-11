@@ -15,6 +15,27 @@
         page. Click the <strong>+</strong> button of a compatible plugin to see
         installation instructions and more info about how it is being tested.
       </p>
+      <p>
+        This project aims to inform the official rollup plugins listed in
+        <a
+          href="https://github.com/vitejs/awesome-vite"
+          target="_blank"
+          rel="noopener"
+          >Awesome Vite</a
+        >. For community maintained rollup plugins in the
+        <a
+          href="https://github.com/rollup/awesome"
+          target="_blank"
+          rel="noopener"
+          >Awesome Rollup list</a
+        >, refer to the Vite Docs section about
+        <a
+          href="https://vitejs.dev/guide/api-plugin.html#rollup-plugin-compatiblity"
+          target="_blank"
+          rel="noopener"
+          >rollup plugin compatibility</a
+        >.
+      </p>
       <div class="legend">
         <span><strong>covered</strong></span>
         <span>Features that are part of Vite. These plugins are unneeded</span>
@@ -69,6 +90,7 @@ header {
 }
 
 .legend {
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 20px 10px;
