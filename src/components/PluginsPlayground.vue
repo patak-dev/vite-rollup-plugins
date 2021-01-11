@@ -41,7 +41,7 @@
     <PluginTest
       name="html"
       description="Create HTML files to serve Rollup bundles"
-      status="todo"
+      status="covered"
     />
     <PluginImage />
     <PluginInject />
