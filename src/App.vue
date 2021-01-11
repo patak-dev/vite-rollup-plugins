@@ -16,13 +16,13 @@
         installation instructions and more info about how it is being tested.
       </p>
       <div class="legend">
-        <span><strong>Covered</strong></span>
+        <span><strong>covered</strong></span>
         <span>Features that are part of Vite. These plugins are unneeded</span>
-        <span><strong>Included</strong></span
+        <span><strong>included</strong></span
         ><span>Plugins that are already shipped out of the box with Vite</span>
-        <span><strong>Compatible</strong></span
+        <span><strong>compatible</strong></span
         ><span>Plugins that work properly when used with Vite</span>
-        <span><strong>Incompatible</strong></span
+        <span><strong>incompatible</strong></span
         ><span>Plugins that can not currently be used with Vite</span>
         <span><strong>todo</strong></span
         ><span

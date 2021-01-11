@@ -13,7 +13,11 @@
     "vue": "^3.0.5"
   },
   "devDependencies": {
+    "@babel/cli": "7.12.10",
+    "@babel/core": "7.12.10",
+    "@babel/plugin-proposal-pipeline-operator": "7.12.1",
     "@rollup/plugin-auto-install": "2.1.0",
+    "@rollup/plugin-babel": "5.2.2",
     "@rollup/plugin-beep": "0.2.0",
     "@rollup/plugin-dsv": "2.0.1",
     "@rollup/plugin-graphql": "1.0.0",

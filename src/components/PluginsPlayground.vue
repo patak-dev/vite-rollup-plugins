@@ -7,11 +7,7 @@
       link="https://vitejs.dev/config/#alias"
     />
     <PluginAutoInstall />
-    <PluginTest
-      name="babel"
-      description="Compile your files with Babel"
-      status="todo"
-    />
+    <PluginBabel />
     <PluginBeep />
     <PluginTest
       name="buble"
@@ -113,6 +109,7 @@
 import PluginTest from "./PluginTest.vue";
 
 import PluginAutoInstall from "./plugins/PluginAutoInstall.vue";
+import PluginBabel from "./plugins/PluginBabel.vue";
 import PluginBeep from "./plugins/PluginBeep.vue";
 import PluginDsv from "./plugins/PluginDsv.vue";
 import PluginGraphQL from "./plugins/PluginGraphQL.vue";

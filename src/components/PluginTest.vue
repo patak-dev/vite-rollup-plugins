@@ -159,14 +159,6 @@ a:active {
   padding-left: 20px;
 }
 
-@media screen and (max-width: 750px) {
-  .enforce {
-    padding-top: 5px;
-    padding-left: 0;
-    display: block;
-  }
-}
-
 .status {
   position: absolute;
   top: 0px;
@@ -201,8 +193,8 @@ button {
   padding: 5px 5px;
   width: 26px;
   height: 26px;
-  top: 4px;
-  left: -30px;
+  top: 6px;
+  left: -34px;
 }
 button:hover {
   background-color: #f4f4f6;
@@ -226,6 +218,8 @@ button:hover {
 
 .details {
   margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .file-name {
@@ -234,5 +228,17 @@ button:hover {
   color: gray;
   top: 15px;
   right: 15px;
+}
+
+@media screen and (max-width: 650px) {
+  .enforce {
+    padding-top: 5px;
+    padding-left: 0;
+    display: block;
+  }
+
+  .config-code {
+    padding-top: 35px;
+  }
 }
 </style>
