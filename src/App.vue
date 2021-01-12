@@ -45,6 +45,8 @@
         ><span>Plugins that work properly when used with Vite</span>
         <span><strong>incompatible</strong></span
         ><span>Plugins that can not currently be used with Vite</span>
+        <span><strong>n/a</strong></span
+        ><span>Plugins that are not applicable for Vite use cases</span>
         <span><strong>todo</strong></span
         ><span
           >Plugins that have not been added to the list yet,

@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['plugin-test', status]"
+    :class="['plugin-test', status === 'n/a' ? 'na' : status]"
     :style="{
       opacity: status === 'todo' ? 0.25 : 1,
     }"
@@ -180,8 +180,8 @@ a:active {
   box-shadow: initial;
 }
 
-.plugin-test.incompatible .status {
-  background-color: lightyellow;
+.plugin-test.na .status {
+  background-color: #ffffff;
   border: none;
 }
 

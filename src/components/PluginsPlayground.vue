@@ -63,7 +63,7 @@
     <PluginTest
       name="run"
       description="Run your bundles in Node once they're built"
-      status="todo"
+      status="n/a"
     />
     <PluginTest
       name="sucrase"
