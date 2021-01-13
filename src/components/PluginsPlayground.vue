@@ -51,7 +51,7 @@
     <PluginTest
       name="multi-entry"
       description="Use multiple entry points for a bundle"
-      status="todo"
+      status="n/a"
     />
     <PluginTest
       name="node-resolve"
