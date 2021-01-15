@@ -13,6 +13,6 @@
 import PluginTest from "../PluginTest.vue";
 // import legacyLibrary from "../../assets/legacy.js";
 
-// const r = legacyLibrary.cube(2);
+const r = 0; //legacyLibrary.cube(2);
 // :status="r === 8 ? 'compatible' : 'error'"
 </script>

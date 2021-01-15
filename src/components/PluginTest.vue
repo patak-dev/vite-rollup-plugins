@@ -61,6 +61,7 @@ const props = defineProps({
   status: String,
   link: { type: String, default: null },
   enforce: { type: String, default: null },
+  options: { type: String, default: "" },
 });
 
 const { slots } = useContext();
@@ -73,12 +74,12 @@ const nameCode = computed(() => camelCase(props.name));
 
 const enforcedCode = () => {
   return `{
-      ...${nameCode.value}(),
+      ...${nameCode.value}(${props.options}),
       enforce: '${props.enforce}'
     }`;
 };
 const normalCode = () => {
-  return `${nameCode.value}()`;
+  return `${nameCode.value}(${props.options})`;
 };
 
 const viteConfigCode = computed(() => {

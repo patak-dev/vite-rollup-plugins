@@ -2,9 +2,10 @@
   <PluginTest
     name="eslint"
     description="Verify entry point and all imported files with ESLint"
-    status="todo"
+    status="compatible"
+    options="{ include: '**/*.+(vue|js|jsx|ts|tsx)' }"
   >
-    <p>using eslint</p>
+    <p>Add an .eslintrc.js to root</p>
   </PluginTest>
 </template>
 

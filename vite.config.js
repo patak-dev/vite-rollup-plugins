@@ -7,7 +7,7 @@ import dsv from '@rollup/plugin-dsv'
 import graphql from '@rollup/plugin-graphql'
 import image from '@rollup/plugin-image'
 import inject from '@rollup/plugin-inject'
-// import legacy from '@rollup/plugin-legacy'
+import legacy from '@rollup/plugin-legacy'
 import replace from '@rollup/plugin-replace'
 // import strip from '@rollup/plugin-strip'
 import yaml from '@rollup/plugin-yaml'
@@ -29,15 +29,16 @@ export default {
       apply: 'build'
     },
     legacy({
-      'src/assets/legacy.js': 'legacyLibrary',
+      './src/assets/legacy.js': 'legacyLibrary',
     }),
     */
+    // compatible, but not included because of <script setup>
+    // eslint({ include: '**/*.+(vue|js|jsx|ts|tsx)' }),
     {
       ...image(),
       enforce: 'pre',
     },
     vue(),
-    // eslint(),
     beep(),
     dsv(),
     graphql(),

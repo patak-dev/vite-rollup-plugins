@@ -35,6 +35,6 @@
     "eslint": "7.17.0",
     "eslint-plugin-vue": "7.0.0-beta.4",
     "graphql": "15.4.0",
-    "vite": "2.0.0-beta.26"
+    "vite": "2.0.0-beta.27"
   }
 }
