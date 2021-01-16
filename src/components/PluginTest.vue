@@ -32,6 +32,10 @@
           <p class="file-name">vite.config.js</p>
           <pre><code>{{ viteConfigCode }}</code></pre>
         </div>
+        <div v-if="usage" class="config-code">
+          <p class="file-name">app code</p>
+          <pre><code>{{ usage }}</code></pre>
+        </div>
       </template>
     </div>
     <p class="status">
@@ -62,6 +66,7 @@ const props = defineProps({
   link: { type: String, default: null },
   enforce: { type: String, default: null },
   options: { type: String, default: "" },
+  usage: { type: String, default: null },
 });
 
 const { slots } = useContext();

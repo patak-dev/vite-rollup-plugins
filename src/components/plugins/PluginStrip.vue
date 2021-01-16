@@ -16,6 +16,4 @@ import PluginTest from "../PluginTest.vue";
 // needs further digging
 
 // debugger; // uncomment to test removal during build
-
-// console.log("this will be removed");
 </script>

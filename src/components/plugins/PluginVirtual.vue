@@ -4,16 +4,9 @@
     description="A Rollup plugin which loads virtual modules from memory"
     status="compatible"
     link="https://vitejs.dev/guide/api-plugin.html#serving-a-virtual-file"
+    :options="options"
+    :usage="usage"
   >
-    <p>
-      This plugin is not currently working but the same feature can be achieved
-      <a
-        href="https://vitejs.dev/guide/api-plugin.html#serving-a-virtual-file"
-        target="_blank"
-        rel="noopener"
-        >with a simple plugin</a
-      >
-    </p>
     <pre>{{ robin + " " + batman }}</pre>
   </PluginTest>
 </template>
@@ -24,4 +17,7 @@ import PluginTest from "../PluginTest.vue";
 // Virtual files defined in vite.config.js
 import batman from "batman";
 import robin from "src/robin.js";
+
+const options = `{ virtualFile: "export default 'example'" }`;
+const usage = `import v from "virtualFile"`;
 </script>
