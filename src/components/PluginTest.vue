@@ -65,6 +65,7 @@ const props = defineProps({
   status: String,
   link: { type: String, default: null },
   enforce: { type: String, default: null },
+  apply: { type: String, default: null },
   options: { type: String, default: "" },
   usage: { type: String, default: null },
 });
@@ -77,22 +78,20 @@ const expanded = ref(false);
 
 const nameCode = computed(() => camelCase(props.name));
 
-const enforcedCode = () => {
-  return `{
-      ...${nameCode.value}(${props.options}),
-      enforce: '${props.enforce}'
-    }`;
-};
-const normalCode = () => {
-  return `${nameCode.value}(${props.options})`;
-};
+const pluginCode = computed(() => {
+  return props.enforce || props.apply ? `{
+      ...${nameCode.value}(${props.options}),${ 
+        props.enforce ? `\n      enforce: '${props.enforce}',` : '' }${ 
+        props.apply ? `\n      apply: '${props.apply}',` : '' }
+    }` : `${nameCode.value}(${props.options})`
+})
 
 const viteConfigCode = computed(() => {
   return `import ${nameCode.value} from "@rollup/plugin-${props.name}"
           
 export default {
   plugins: [
-    ${props.enforce ? enforcedCode() : normalCode()},
+    ${pluginCode.value},
   ]
 }
 `;

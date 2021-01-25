@@ -23,13 +23,18 @@ export default {
       ...autoInstall(),
       enforce: 'pre',
     },
-    babel({ babelHelpers: 'bundled' }),
     legacy({
       './src/assets/legacy.js': 'legacyLibrary',
     }),
     */
     // compatible, but not included because of <script setup>
     // eslint({ include: '**/*.+(vue|js|jsx|ts|tsx)' }),
+    /*
+    babel({
+      include: /\**\/*.js/
+      , babelHelpers: 'bundled'
+    }),
+    */
     {
       ...image(),
       enforce: 'pre',
@@ -44,14 +49,17 @@ export default {
     replace({
       __replaced__: "correctly replaced"
     }),
-    yaml(),
-    virtual({
-      batman: `export default 'na na na na na'`,
-      'src/robin.js': `export default 'batmannnnn'`
-    }),
+    strip(),
+    /* normally you would use
     {
       ...strip(),
       apply: 'build'
     },
+    */
+    yaml(),
+    virtual({
+      batman: `export default 'na na na na na'`,
+      'src/robin.js': `export default 'batmannnnn'`
+    })
   ]
 }

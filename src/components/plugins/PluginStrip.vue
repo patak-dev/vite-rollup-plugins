@@ -2,10 +2,10 @@
   <PluginTest
     name="strip"
     description="Replace strings in files while bundling"
-    status="todo"
+    status="compatible"
+    apply="build"
   >
     <p>"this will be removed" should not appear in the console</p>
-    <p>debbuger removed</p>
   </PluginTest>
 </template>
 
@@ -15,5 +15,6 @@ import PluginTest from "../PluginTest.vue";
 // debugger removal is working, but console.log is not stripped
 // needs further digging
 
+console.log("test");
 // debugger; // uncomment to test removal during build
 </script>

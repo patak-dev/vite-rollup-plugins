@@ -21,9 +21,9 @@ function exclaim(str) {
   return str + "!";
 }
 
-// const result = "hello" |> doubleSay |> capitalize |> exclaim;
+//const result = "hello" |> doubleSay |> capitalize |> exclaim;
+const result = "todo"
 
-// const test = exclaim(capitalize(doubleSay("hello"))) === result;
+const test = exclaim(capitalize(doubleSay("hello"))) === result;
 
-const test = true;
 </script>
