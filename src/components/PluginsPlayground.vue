@@ -111,7 +111,6 @@ import PluginReplace from "./plugins/PluginReplace.vue";
 import PluginStrip from "./plugins/PluginStrip.vue";
 import PluginYaml from "./plugins/PluginYaml.vue";
 import PluginVirtual from "./plugins/PluginVirtual.vue";
-
 </script>
 
 <style scoped>

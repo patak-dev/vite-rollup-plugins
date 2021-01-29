@@ -2,7 +2,7 @@
   <PluginTest
     name="legacy"
     description="Add export declarations to legacy non-module scripts"
-    status="todo"
+    :status="r === 8 ? 'compatible' : 'error'"
   >
     <p>Import from a legacy library</p>
     <pre>{{ r }}</pre>
@@ -11,8 +11,7 @@
 
 <script setup>
 import PluginTest from "../PluginTest.vue";
-// import legacyLibrary from "../../assets/legacy.js";
+import legacyLibrary from "../../assets/legacy.js";
 
-const r = 0; //legacyLibrary.cube(2);
-// :status="r === 8 ? 'compatible' : 'error'"
+const r = legacyLibrary.cube(2);
 </script>

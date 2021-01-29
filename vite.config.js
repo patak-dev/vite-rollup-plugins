@@ -4,6 +4,7 @@ import dsv from '@rollup/plugin-dsv'
 import graphql from '@rollup/plugin-graphql'
 import image from '@rollup/plugin-image'
 import inject from '@rollup/plugin-inject'
+import legacy from '@rollup/plugin-legacy'
 import replace from '@rollup/plugin-replace'
 import strip from '@rollup/plugin-strip'
 import yaml from '@rollup/plugin-yaml'
@@ -11,7 +12,6 @@ import virtual from '@rollup/plugin-virtual'
 
 // Issues being resolved
 // import autoInstall from '@rollup/plugin-auto-install'
-// import legacy from '@rollup/plugin-legacy'
 
 // Working, but not included in the page build
 // import eslint from '@rollup/plugin-eslint'
@@ -27,9 +27,6 @@ export default {
       ...autoInstall(),
       enforce: 'pre',
     },
-    legacy({
-      './src/assets/legacy.js': 'legacyLibrary',
-    }),
     */
     // compatible, but not included because of <script setup>
     // eslint({ include: '**/*.+(vue|js|jsx|ts|tsx)' }),
@@ -45,6 +42,9 @@ export default {
     graphql(),
     inject({
       nanoid: ['nanoid', 'nanoid']
+    }),
+    legacy({
+      './src/assets/legacy.js': 'legacyLibrary',
     }),
     replace({
       __replaced__: "correctly replaced"
