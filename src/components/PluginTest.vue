@@ -47,7 +47,12 @@
         {{ status }}
       </template>
     </p>
-    <div class="test" v-if="expanded && hasDetails">
+    <div class="test" v-if="expanded && hasInfo">
+      <div class="details">
+        <slot name="info"/>
+      </div>
+    </div>
+    <div class="test" v-if="expanded && hasTest">
       <p>Test</p>
       <div class="details">
         <slot />
@@ -72,7 +77,11 @@ const props = defineProps({
 
 const { slots } = useContext();
 
-const hasDetails = computed(() => props.status !== "todo" && !!slots.default);
+const hasTest = computed(() => props.status !== "todo" && !!slots.default);
+
+const hasInfo = computed(() => props.status !== "todo" && !!slots.info);
+
+const hasDetails = computed( () => hasTest.value || hasInfo.value );
 
 const expanded = ref(false);
 

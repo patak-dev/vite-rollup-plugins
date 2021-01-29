@@ -12,9 +12,6 @@
 <script setup>
 import PluginTest from "../PluginTest.vue";
 
-// debugger removal is working, but console.log is not stripped
-// needs further digging
-
-console.log("test");
+console.log("this will be removed");
 // debugger; // uncomment to test removal during build
 </script>

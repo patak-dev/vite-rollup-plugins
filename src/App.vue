@@ -5,7 +5,7 @@
   <main>
     <div class="info">
       <h3>
-        A list of official rollup plugins compatibility for Vite v2.0.0-beta.48.
+        A list of official rollup plugins compatibility for Vite v2.0.0-beta.58.
       </h3>
       <p>
         This page is built using

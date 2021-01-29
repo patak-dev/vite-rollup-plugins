@@ -1,11 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-console.log('test')
-
 createApp(App).mount('#app')
 
-/*
+
+/* Testing @rollup/plugin-babel
 function doubleSay(str) {
   return str + ", " + str;
 }
@@ -15,8 +14,6 @@ function capitalize(str) {
 function exclaim(str) {
   return str + "!";
 }
-
 const result = "hello" |> doubleSay |> capitalize |> exclaim;
-
-console.log(result)
+console.log(result);
 */
