@@ -1,7 +1,7 @@
 <template>
   <PluginTest
     name="strip"
-    description="Replace strings in files while bundling"
+    description="Remove debugger statements and functions like assert.equal and console.log from your code"
     status="compatible"
     apply="build"
   >
