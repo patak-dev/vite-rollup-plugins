@@ -22,7 +22,7 @@
     />
     <PluginTest
       name="data-uri"
-      description="Convert CommonJS modules to ES6"
+      description="Import modules from Data URIs"
       status="covered"
       link="https://github.com/vitejs/vite/issues/1428#issuecomment-757054035"
     />
