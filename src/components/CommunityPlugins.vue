@@ -14,6 +14,13 @@
       status="covered"
       link="https://vitejs.dev/config/#build-minify"
     />
+    <PluginCard
+      name="rollup-plugin-postcss"
+      docs="https://github.com/egoist/rollup-plugin-postcss#readme"
+      description="Seamless integration between Rollup and PostCSS"
+      status="covered"
+      link="https://vitejs.dev/guide/features.html#postcss"
+    />    
   </div>
 </template>
 
