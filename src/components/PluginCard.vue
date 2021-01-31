@@ -1,14 +1,14 @@
 <template>
   <div
-    :class="['plugin-test', status === 'n/a' ? 'na' : status]"
+    :class="['plugin-card', status === 'n/a' ? 'na' : status]"
     :style="{
       opacity: status === 'todo' ? 0.25 : 1,
     }"
   >
-    <div class="test-header">
+    <div class="card-header">
       <p>
         <a
-          :href="`https://github.com/rollup/plugins/tree/master/packages/${name}`"
+          :href="docsLink"
           target="_blank"
           rel="noopener"
           >{{ name }}</a
@@ -42,7 +42,7 @@
       <button v-if="hasDetails" @click="expanded = !expanded" class="expand">
         {{ expanded ? "-" : "+" }}
       </button>
-      <a v-if="link" href="link" target="_blank">{{ status }}</a>
+      <a v-if="link" :href="link" target="_blank">{{ status }}</a>
       <template v-else>
         {{ status }}
       </template>
@@ -65,9 +65,10 @@
 import { ref, computed, defineProps, useContext } from "vue";
 
 const props = defineProps({
-  name: String,
-  description: String,
-  status: String,
+  name: { type: String, required: true },
+  docs: { type: String, default: null },
+  description: { type: String, required: true },
+  status: { type: String, default: 'todo' },
   link: { type: String, default: null },
   enforce: { type: String, default: null },
   apply: { type: String, default: null },
@@ -82,6 +83,8 @@ const hasTest = computed(() => props.status !== "todo" && !!slots.default);
 const hasInfo = computed(() => props.status !== "todo" && !!slots.info);
 
 const hasDetails = computed( () => hasTest.value || hasInfo.value );
+
+const docsLink = computed( () => props.docs || `https://github.com/rollup/plugins/tree/master/packages/${props.name}` );
 
 const expanded = ref(false);
 
@@ -123,7 +126,7 @@ function camelCase(str) {
 </script>
 
 <style scoped>
-.plugin-test {
+.plugin-card {
   padding: 20px;
   margin: 0 auto;
   max-width: 640px;
@@ -134,7 +137,7 @@ function camelCase(str) {
   position: relative;
 }
 
-:not(.todo).plugin-test:hover {
+:not(.todo).plugin-card:hover {
   box-shadow: 4px 4px 7px #e0e0e1, -4px -4px 7px #f6f6f6;
 }
 
@@ -142,13 +145,13 @@ p {
   margin: 0;
 }
 
-.test-header {
+.card-header {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.test-header a {
+.card-header a {
   text-align: left;
   color: #42b983;
 }
@@ -188,13 +191,13 @@ a:active {
   background-color: #fbfbfb;
   box-shadow: inset 3px 3px 6px #f0f0f0, -3px -3px 6px #fbfbfb;
 }
-.plugin-test.error .status {
+.plugin-card.error .status {
   background-color: #cc0000;
   color: white;
   box-shadow: initial;
 }
 
-.plugin-test.na .status {
+.plugin-card.na .status {
   background-color: #ffffff;
   border: none;
 }

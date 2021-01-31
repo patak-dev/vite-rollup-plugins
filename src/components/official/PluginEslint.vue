@@ -1,5 +1,5 @@
 <template>
-  <PluginTest
+  <PluginCard
     name="eslint"
     description="Verify entry point and all imported files with ESLint"
     status="compatible"
@@ -7,9 +7,9 @@
     apply="build"
   >
     <p>Add an .eslintrc.js to root</p>
-  </PluginTest>
+  </PluginCard>
 </template>
 
 <script setup>
-import PluginTest from "../PluginTest.vue";
+import PluginCard from "../PluginCard.vue";
 </script>

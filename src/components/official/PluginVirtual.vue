@@ -1,5 +1,5 @@
 <template>
-  <PluginTest
+  <PluginCard
     name="virtual"
     description="A Rollup plugin which loads virtual modules from memory"
     status="compatible"
@@ -8,11 +8,11 @@
     :usage="usage"
   >
     <pre>{{ robin + " " + batman }}</pre>
-  </PluginTest>
+  </PluginCard>
 </template>
 
 <script setup>
-import PluginTest from "../PluginTest.vue";
+import PluginCard from "../PluginCard.vue";
 
 // Virtual files defined in vite.config.js
 import batman from "batman";

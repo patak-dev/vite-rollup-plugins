@@ -1,15 +1,15 @@
 <template>
-  <PluginTest
+  <PluginCard
     name="replace"
     description="Replace strings in files while bundling"
     status="compatible"
   >
     <p>Replaced in script: {{ replaced }}</p>
     <p>Replaced in template: __replaced__</p>
-  </PluginTest>
+  </PluginCard>
 </template>
 
 <script setup>
-import PluginTest from "../PluginTest.vue";
+import PluginCard from "../PluginCard.vue";
 const replaced = "__replaced__";
 </script>

@@ -5,7 +5,7 @@
   <main>
     <div class="info">
       <h3>
-        A list of official rollup plugins compatibility for Vite v2.0.0-beta.58.
+        A list of official rollup plugins compatibility for Vite v2.0.0-beta.60.
       </h3>
       <p>
         This page is built using
@@ -22,7 +22,7 @@
           target="_blank"
           rel="noopener"
           >Awesome Vite</a
-        >. For community maintained rollup plugins in the
+        >. Some popular community maintained plugins are also included. For other community rollup plugins, like the ones in the
         <a
           href="https://github.com/rollup/awesome"
           target="_blank"
@@ -59,7 +59,19 @@
         </span>
       </div>
     </div>
-    <PluginsPlayground />
+    <OfficialPlugins />
+    <div class="info community">
+      <h3>
+        Popular Community Maintained Rollup Plugins
+      </h3>
+      <p>Work In Progress, <a
+            href="https://github.com/matias-capeletto/vite-rollup-plugins"
+            target="_blank"
+            rel="noopener"
+            >PRs welcome</a
+          ></p>
+    </div>
+    <CommunityPlugins />
     <footer>
       <a href="https://twitter.com/patak_js" target="_blank" rel="noopener"
         >@patak_js</a
@@ -72,7 +84,8 @@
 </template>
 
 <script setup>
-import PluginsPlayground from "./components/PluginsPlayground.vue";
+import OfficialPlugins from "./components/OfficialPlugins.vue";
+import CommunityPlugins from "./components/CommunityPlugins.vue";
 </script>
 
 <style>
@@ -97,6 +110,10 @@ header {
   margin-top: 60px;
   margin-bottom: 60px;
   text-align: left;
+}
+
+.info.community {
+  margin-top: 100px;
 }
 
 .legend {

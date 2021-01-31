@@ -1,5 +1,5 @@
 <template>
-  <PluginTest
+  <PluginCard
     name="image"
     description="Import JPG, PNG, GIF, SVG, and WebP files"
     enforce="pre"
@@ -11,11 +11,11 @@
   >
     <img :src="base64" alt="base64 encoded image" />
     <p>{{ base64 }}</p>
-  </PluginTest>
+  </PluginCard>
 </template>
 
 <script setup>
-import PluginTest from "../PluginTest.vue";
+import PluginCard from "../PluginCard.vue";
 import base64 from "../../assets/logo.png";
 </script>
 

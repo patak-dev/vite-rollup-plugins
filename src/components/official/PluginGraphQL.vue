@@ -1,5 +1,5 @@
 <template>
-  <PluginTest
+  <PluginCard
     name="graphql"
     description="Convert .gql/.graphql files to ES6 modules"
     status="compatible"
@@ -18,10 +18,10 @@
           : "Query error"
       }}
     </p>
-  </PluginTest>
+  </PluginCard>
 </template>
 
 <script setup>
-import PluginTest from "../PluginTest.vue";
+import PluginCard from "../PluginCard.vue";
 import graphql, { HeroComparison } from "../../assets/file.graphql";
 </script>
