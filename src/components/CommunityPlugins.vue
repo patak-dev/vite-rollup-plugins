@@ -93,6 +93,20 @@
       status="covered"
       link="https://vitejs.dev/guide/features.html#the-public-directory"
     />
+    <PluginCard
+      name="rollup-plugin-string"
+      docs="https://github.com/TrySound/rollup-plugin-string#readme"
+      description="Converts text files to modules"
+      status="covered"
+      link="https://vitejs.dev/guide/assets.html#importing-asset-as-string"
+    >
+      <template v-slot:info>
+        <p>You can use the ?raw suffix to import assets as strings</p>
+        <pre><code>import tpl from "./tpl.html?raw";
+console.log(`Template for render: ${tpl}`);</code></pre>
+      </template>
+    </PluginCard>
+    
   </div>
 </template>
 
