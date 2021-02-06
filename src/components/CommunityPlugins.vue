@@ -107,6 +107,12 @@ console.log(`Template for render: ${tpl}`);</code></pre>
       </template>
     </PluginCard>
     <PluginCard
+      name="rollup-plugin-progress"
+      docs="https://github.com/jkuri/rollup-plugin-progress#readme"
+      description="Show current module being transpiled by the rollup bundler"
+      status="covered"
+    />
+    <PluginCard
       name="rollup-plugin-analyzer"
       docs="https://github.com/vladshcherbin/rollup-plugin-analyzer#readme"
       description="Mad metrics for your rollup bundles, know all the things"

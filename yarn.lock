@@ -2080,6 +2080,13 @@ rollup-plugin-analyzer@4.0.0:
   resolved "https://registry.yarnpkg.com/rollup-plugin-analyzer/-/rollup-plugin-analyzer-4.0.0.tgz#96b757ed64a098b59d72f085319e68cdd86d5798"
   integrity sha512-LL9GEt3bkXp6Wa19SNR5MWcvHNMvuTFYg+eYBZN2OIFhSWN+pEJUQXEKu5BsOeABob3x9PDaLKW7w5iOJnsESQ==
 
+rollup-plugin-progress@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-progress/-/rollup-plugin-progress-1.1.2.tgz#5c1dfe7c50f654906bc34d167d5512ee1a4b72d5"
+  integrity sha512-6ehSZOMTZdAlRpe45kf56BnIOsDYC2GKWhGlK/Dh/Ae/AMUneMDyKdiv9ZlRrW/HVc986frTZcc2Zka+oF6W7Q==
+  dependencies:
+    chalk "^2.4.2"
+
 rollup@^2.35.1:
   version "2.38.5"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.38.5.tgz#be41ad4fe0c103a8794377afceb5f22b8f603d6a"
