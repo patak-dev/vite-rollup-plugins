@@ -1,3 +1,4 @@
+// Official Plugins
 import vue from '@vitejs/plugin-vue'
 import beep from '@rollup/plugin-beep'
 import dsv from '@rollup/plugin-dsv'
@@ -17,11 +18,18 @@ import virtual from '@rollup/plugin-virtual'
 // import eslint from '@rollup/plugin-eslint'
 // import babel from '@rollup/plugin-babel'
 
+// Community plugins
+
+// import analyze from 'rollup-plugin-analyzer'
+
 /**
  * @type {import('vite').UserConfig}
  */
 export default {
   plugins: [
+
+    // Official Plugins
+
     /* WIP, issues being resolved in vite and rollup-plugins
     {
       ...autoInstall(),
@@ -58,6 +66,16 @@ export default {
     /* normally you would use it only during build, included in dev for testing
     {
       ...strip(),
+      apply: 'build'
+    },
+    */
+
+    // Community Plugins
+
+    /* [incompatible]
+    {
+      ...analyze({ summaryOnly: true }),
+      enforce: 'post',
       apply: 'build'
     },
     */
