@@ -1,5 +1,6 @@
 <template>
   <PluginCard
+    official="true"
     name="auto-install"
     description="Automatically install dependencies that are imported by a bundle"
     enforce="pre"

@@ -1,5 +1,6 @@
 <template>
   <PluginCard
+    official="true"
     name="graphql"
     description="Convert .gql/.graphql files to ES6 modules"
     status="compatible"

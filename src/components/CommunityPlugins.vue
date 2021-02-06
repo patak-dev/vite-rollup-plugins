@@ -1,7 +1,18 @@
 <template>
   <div class="playground">
     <PluginCard
-      name="@surma/rollup-plugin-off-main-thread"
+      name="rollup-plugin-typescript2"
+      docs="https://github.com/ezolenko/rollup-plugin-typescript2"
+      description="Rollup plugin for typescript with compiler errors."
+      status="compatible"
+      apply="build"
+    >
+      <template v-slot:info>
+      Good plugin to generate types at build time. Vite already has support for Typescript otherwise.
+      </template>
+    </PluginCard>
+    <PluginCard
+      name="rollup-plugin-off-main-thread"
       docs="https://github.com/surma/rollup-plugin-off-main-thread#readme"
       description="Use Rollup with workers and ES6 modules today"
       status="covered"

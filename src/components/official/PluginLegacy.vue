@@ -1,5 +1,6 @@
 <template>
   <PluginCard
+    official="true"
     name="legacy"
     description="Add export declarations to legacy non-module scripts"
     :status="r === 8 ? 'compatible' : 'error'"

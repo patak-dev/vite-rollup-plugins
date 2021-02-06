@@ -26,7 +26,7 @@
       <p>{{ description }}</p>
       <template v-if="status === 'compatible' && expanded">
         <div class="install-code">
-          <pre><code>{{ `$ npm i -D @rollup/plugin-${name}` }}</code></pre>
+          <pre><code>{{ `$ npm i -D ${npmCode}` }}</code></pre>
         </div>
         <div class="config-code">
           <p class="file-name">vite.config.js</p>
@@ -67,6 +67,7 @@ import { ref, computed, defineProps, useContext } from "vue";
 const props = defineProps({
   name: { type: String, required: true },
   docs: { type: String, default: null },
+  npm: { type: String, default: null },
   description: { type: String, required: true },
   status: { type: String, default: 'todo' },
   link: { type: String, default: null },
@@ -74,6 +75,7 @@ const props = defineProps({
   apply: { type: String, default: null },
   options: { type: String, default: "" },
   usage: { type: String, default: null },
+  official: { type: Boolean, default: false }
 });
 
 const { slots } = useContext();
@@ -88,7 +90,9 @@ const docsLink = computed( () => props.docs || `https://github.com/rollup/plugin
 
 const expanded = ref(false);
 
-const nameCode = computed(() => camelCase(props.name));
+const nameCode = computed(() => camelCase(props.name.replace('rollup-plugin-','')));
+
+const npmCode = computed(() => props.npm || ( props.official ? `@rollup/plugin-${props.name}` : props.name ))
 
 const pluginCode = computed(() => {
   return props.enforce || props.apply ? `{
@@ -99,7 +103,7 @@ const pluginCode = computed(() => {
 })
 
 const viteConfigCode = computed(() => {
-  return `import ${nameCode.value} from "@rollup/plugin-${props.name}"
+  return `import ${nameCode.value} from "${npmCode.value}"
           
 export default {
   plugins: [

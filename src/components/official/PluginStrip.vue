@@ -1,5 +1,6 @@
 <template>
   <PluginCard
+    official="true"
     name="strip"
     description="Remove debugger statements and functions like assert.equal and console.log from your code"
     status="compatible"

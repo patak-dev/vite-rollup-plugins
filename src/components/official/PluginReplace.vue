@@ -1,5 +1,6 @@
 <template>
   <PluginCard
+    official="true"
     name="replace"
     description="Replace strings in files while bundling"
     status="compatible"

@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img class="logo" width="120" src="/public/logo.svg" />
+    <img class="logo" width="120" src="/logo.svg" />
     <h1>⚡ Vite Rollup Plugins 🍣</h1>
   </header>
   <main>
