@@ -107,6 +107,12 @@ console.log(`Template for render: ${tpl}`);</code></pre>
       </template>
     </PluginCard>
     <PluginCard
+      name="rollup-plugin-serve"
+      docs="https://github.com/thgh/rollup-plugin-serve#readme"
+      description="Rollup plugin to serve the bundle"
+      status="covered"
+    />
+    <PluginCard
       name="rollup-plugin-progress"
       docs="https://github.com/jkuri/rollup-plugin-progress#readme"
       description="Show current module being transpiled by the rollup bundler"
@@ -116,7 +122,13 @@ console.log(`Template for render: ${tpl}`);</code></pre>
       name="rollup-plugin-analyzer"
       docs="https://github.com/vladshcherbin/rollup-plugin-analyzer#readme"
       description="Mad metrics for your rollup bundles, know all the things"
-      status="incompatible"
+      status="todo"
+    />
+    <PluginCard
+      name="rollup-plugin-visualizer"
+      docs="https://github.com/btd/rollup-plugin-visualizer#readme"
+      description="Visualize and analyze your Rollup bundle to see which modules are taking up space"
+      status="todo"
     />
   </div>
 </template>
