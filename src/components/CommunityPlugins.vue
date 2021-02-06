@@ -82,7 +82,6 @@
       status="covered"
       link="https://vitejs.dev/guide/features.html#the-public-directory"
     />
-    
   </div>
 </template>
 

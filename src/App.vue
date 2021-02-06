@@ -1,11 +1,12 @@
 <template>
   <header>
+    <img class="logo" width="120" src="/public/logo.svg" />
     <h1>⚡ Vite Rollup Plugins 🍣</h1>
   </header>
   <main>
     <div class="info">
       <h3>
-        A list of official rollup plugins compatibility for Vite v2.0.0-beta.60.
+        A list of official rollup plugins compatibility for Vite v2.0.0-beta.65.
       </h3>
       <p>
         This page is built using
