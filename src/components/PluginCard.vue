@@ -39,9 +39,10 @@
       </template>
     </div>
     <p class="status">
-      <button v-if="hasDetails" @click="expanded = !expanded" class="expand">
-        {{ expanded ? "-" : "+" }}
-      </button>
+      <a class="info-toggle" v-if="hasDetails" @click="expanded = !expanded">
+        <IconInfo v-if="!expanded" />
+        <IconCollapse v-else/>
+      </a>
       <a v-if="link" :href="link" target="_blank">{{ status }}</a>
       <template v-else>
         {{ status }}
@@ -62,6 +63,8 @@
 </template>
 
 <script setup>
+import IconInfo from '../icons/IconInfo.vue' 
+import IconCollapse from '../icons/IconCollapse.vue' 
 import { ref, computed, defineProps, useContext } from "vue";
 
 const props = defineProps({
@@ -131,18 +134,20 @@ function camelCase(str) {
 
 <style scoped>
 .plugin-card {
+  background-color: var(--color-back-raised);
   padding: 20px;
   margin: 0 auto;
   max-width: 640px;
   /*border: 1px solid #eaeaea;*/
   border-radius: 10px;
   width: 90%;
-  box-shadow: 3px 3px 6px #e4e4e6, -3px -3px 6px #fbfbfb;
+  box-shadow: 3px 3px 6px var(--color-shadow-a), -3px -3px 6px var(--color-shadow-b);
   position: relative;
 }
 
 :not(.todo).plugin-card:hover {
-  box-shadow: 4px 4px 7px #e0e0e1, -4px -4px 7px #f6f6f6;
+  background-color: var(--color-back-raised-hover);
+  box-shadow: 4px 4px 7px var(--color-shadow-a-hover), -4px -4px 7px var(--color-shadow-b-hover);
 }
 
 p {
@@ -157,7 +162,6 @@ p {
 
 .card-header a {
   text-align: left;
-  color: #42b983;
 }
 
 a:link {
@@ -189,11 +193,11 @@ a:active {
   border-radius: 0 5px 0 5px;
   width: 90px;
   text-align: center;
-  border: 1px solid #42b98344;
+  border: 1px solid var(--color-border-status);
   border-top: none;
   border-right: none;
-  background-color: #fbfbfb;
-  box-shadow: inset 3px 3px 6px #f0f0f0, -3px -3px 6px #fbfbfb;
+  background-color: var(--color-back-status);
+  box-shadow: inset 3px 3px 6px var(--color-shadow-status-a), inset -3px -3px 6px var(--color-shadow-status-b);
 }
 .plugin-card.error .status {
   background-color: #cc0000;
@@ -202,25 +206,23 @@ a:active {
 }
 
 .plugin-card.na .status {
-  background-color: #ffffff;
+  background-color: var(--color-back-status-na);
   border: none;
 }
 
-button {
-  appearance: none;
-  border: none;
-  background-color: white;
+.info-toggle {
+  color: var(--color-text);
   border-radius: 5px;
   position: absolute;
   padding: 5px 5px;
   width: 26px;
   height: 26px;
-  top: 6px;
-  left: -34px;
+  top: 5px;
+  left: -40px;
 }
-button:hover {
-  background-color: #f4f4f6;
-  box-shadow: inset 3px 3px 6px #f0f0f0, -3px -3px 6px #fbfbfb;
+.info-toggle:hover {
+  cursor: pointer;
+  color: var(--color-text-hover);
 }
 
 .test {
@@ -230,8 +232,8 @@ button:hover {
 .install-code,
 .config-code {
   margin-top: 10px;
-  background-color: #fbfbfb;
-  box-shadow: inset 3px 3px 6px #f0f0f0, -3px -3px 6px #fbfbfb;
+  background-color: var(--color-back-config);
+  box-shadow: inset 3px 3px 6px var(--color-shadow-config-a), inset -3px -3px 6px var(--color-shadow-config-b);
   border-radius: 10px;
   padding: 20px;
   position: relative;
@@ -247,7 +249,7 @@ button:hover {
 .file-name {
   position: absolute;
   font-size: 0.9em;
-  color: gray;
+  color: var(--color-text-soft);
   top: 15px;
   right: 15px;
 }

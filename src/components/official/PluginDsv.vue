@@ -1,6 +1,6 @@
 <template>
   <PluginCard
-    official="true"
+    :official="true"
     name="dsv"
     description="Convert .csv and .tsv files into JavaScript modules with d3-dsv"
     :status="csv.length === 3 ? 'compatible' : 'error'"

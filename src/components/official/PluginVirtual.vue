@@ -1,6 +1,6 @@
 <template>
   <PluginCard
-    official="true"
+    :official="true"
     name="virtual"
     description="A Rollup plugin which loads virtual modules from memory"
     status="compatible"

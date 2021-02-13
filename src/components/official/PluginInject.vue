@@ -1,6 +1,6 @@
 <template>
   <PluginCard
-    official="true"
+    :official="true"
     name="inject"
     description="Scan modules for global variables and injects import statements where necessary"
     status="compatible"

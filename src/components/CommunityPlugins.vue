@@ -119,6 +119,12 @@ console.log(`Template for render: ${tpl}`);</code></pre>
       status="covered"
     />
     <PluginCard
+      name="rollup-plugin-sizes"
+      docs="https://github.com/tivac/rollup-plugin-sizes#readme"
+      description="Simple analysis on rollup bundling"
+      status="incompatible"
+    />
+    <PluginCard
       name="rollup-plugin-analyzer"
       docs="https://github.com/vladshcherbin/rollup-plugin-analyzer#readme"
       description="Mad metrics for your rollup bundles, know all the things"

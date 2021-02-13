@@ -1,6 +1,6 @@
 <template>
   <PluginCard
-    official="true"
+    :official="true"
     name="beep"
     description="System beeps on errors and warnings"
     status="compatible"

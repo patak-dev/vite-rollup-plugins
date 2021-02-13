@@ -21,7 +21,8 @@ import virtual from '@rollup/plugin-virtual'
 // Community plugins
 
 // import analyze from 'rollup-plugin-analyzer'
-import visualizer from 'rollup-plugin-visualizer';
+// import visualizer from 'rollup-plugin-visualizer';
+// import sizes from 'rollup-plugin-sizes';
 
 /**
  * @type {import('vite').UserConfig}
@@ -81,6 +82,13 @@ export default {
     },
     {
       ...visualizer({ template: 'sunburst', brotliSize: true, open: true }),
+      enforce: 'post',
+      apply: 'build'
+    },
+    */
+    /* [incompatible]
+    {
+      ...sizes(),
       enforce: 'post',
       apply: 'build'
     },

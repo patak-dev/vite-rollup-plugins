@@ -1,6 +1,6 @@
 <template>
   <PluginCard
-    official="true"
+    :official="true"
     name="eslint"
     description="Verify entry point and all imported files with ESLint"
     status="compatible"

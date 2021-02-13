@@ -1,6 +1,6 @@
 <template>
   <PluginCard
-    official="true"
+    :official="true"
     name="yaml"
     description="Convert YAML files to ES6 modules"
     :status="yaml.key === 'Content from YAML file' ? 'compatible' : 'error'"

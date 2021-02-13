@@ -1,6 +1,6 @@
 <template>
   <PluginCard
-    official="true"
+    :official="true"
     name="image"
     description="Import JPG, PNG, GIF, SVG, and WebP files"
     enforce="pre"

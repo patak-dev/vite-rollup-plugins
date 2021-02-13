@@ -1,6 +1,6 @@
 <template>
   <PluginCard
-    official="true"
+    :official="true"
     name="babel"
     description="Compile your files with Babel"
     status="covered"
