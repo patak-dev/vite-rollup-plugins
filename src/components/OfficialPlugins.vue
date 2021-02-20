@@ -1,7 +1,7 @@
 <template>
   <div class="playground">
     <PluginCard
-      official="true"
+      :official="true"
       name="alias"
       description="Define and resolve aliases for bundle dependencies"
       status="included"
