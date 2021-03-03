@@ -1,7 +1,7 @@
 <template>
   <header>
     
-    <h1><img class="logo vite" style="transform:translateY(0.5px);" height="36" src="/public/logo.svg" /><span style="color: #646cff;">ite</span> <img class="logo rollup" style="padding-left:6px;transform:translateY(0.5px);" height="35" src="/public/rollup.svg" /><span style="color:rgb(239, 51, 53);">ollup</span> Plugins</h1>
+    <h1><img class="logo vite" style="transform:translateY(0.5px);" widht="36" height="36" src="/public/logo.svg" /><span style="color: #646cff;">ite</span> <img class="logo rollup" style="padding-left:6px;transform:translateY(0.5px);" height="35" widht="35" src="/public/rollup.svg" /><span style="color:rgb(239, 51, 53);">ollup</span> Plugins</h1>
     
     <a class="theme-toggle" @click="toggleDark">
       <IconDark v-if="isDark"/>
@@ -105,70 +105,13 @@ import IconLight from './icons/IconLight.vue'
 import { useDark, useToggle } from '@vueuse/core'
 import { ref } from 'vue'
 
-const isDark = useDark()
+const isDark = useDark({ valueLight: 'light' })
 const toggleDark = useToggle(isDark)
 
 const aboutExpanded = ref(false)
 </script>
 
 <style>
-
-html {
-  --color-text: #2c3e50;
-  --color-text-hover: #828282;
-  --color-text-soft: gray;
-  --color-back: white;
-  --color-back-raised: white;
-  --color-back-raised-hover: white;
-  --color-back-status: #fbfbfb;
-  --color-back-status-na: #fbfbfb;
-  --color-back-config: white;
-  --color-link: #646cff;
-  
-  --color-shadow-a: #e4e4e6;
-  --color-shadow-b: #fbfbfb;
-  --color-shadow-a-hover: #e0e0e1;
-  --color-shadow-b-hover: #f6f6f6;
-
-  --color-shadow-status-a: #e4e4e6;
-  --color-shadow-status-b: #fbfbfb;
-  
-  --color-shadow-config-a: #e4e4e6;
-  --color-shadow-config-b: #fbfbfb;
-  
-  --color-border-status: #42b98344;
-}
-html.dark {
-  --color-text: #bbb;
-  --color-text-hover: white;
-  --color-text-soft: #666;
-  --color-back: #121212;
-  --color-back-raised: #232323;
-  --color-back-raised-hover: #2a2a2a;
-  --color-back-status: #1d1d1d;
-  --color-back-status-na: #1d1d1d;
-  --color-back-config: #1d1d1d;
-  --color-link: #646cff;
-  
-  --color-shadow-a: #none;
-  --color-shadow-b: none;
-  --color-shadow-a-hover: none;
-  --color-shadow-b-hover: none;
-
-  --color-shadow-status-a: none;
-  --color-shadow-status-b: none;
-  
-  --color-shadow-config-a: none;
-  --color-shadow-config-b: none;
-
-  --color-border-status: none;
-}
-  
-body {
-  color: var(--color-text);
-  background-color: var(--color-back);
-}
-
 #app {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;

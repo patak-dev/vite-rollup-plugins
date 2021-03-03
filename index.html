@@ -14,6 +14,118 @@
   <meta name="twitter:title" content="Vite Rollup Plugins">
   <meta name="twitter:description" content="A list of rollup plugins compatibility for Vite">
   <meta name="twitter:image" content="https://vite-rollup-plugins.patak.dev/twitter-cover.png">
+  <style>
+    html {
+      --color-text: #2c3e50;
+      --color-text-hover: #828282;
+      --color-text-soft: gray;
+      --color-back: white;
+      --color-back-raised: white;
+      --color-back-raised-hover: white;
+      --color-back-status: #fbfbfb;
+      --color-back-status-na: #fbfbfb;
+      --color-back-config: white;
+      --color-link: #646cff;
+
+      --color-shadow-a: #e4e4e6;
+      --color-shadow-b: #fbfbfb;
+      --color-shadow-a-hover: #e0e0e1;
+      --color-shadow-b-hover: #f6f6f6;
+
+      --color-shadow-status-a: #e4e4e6;
+      --color-shadow-status-b: #fbfbfb;
+
+      --color-shadow-config-a: #e4e4e6;
+      --color-shadow-config-b: #fbfbfb;
+
+      --color-border-status: #42b98344;
+    }
+
+    html.dark {
+      --color-text: #bbb;
+      --color-text-hover: white;
+      --color-text-soft: #666;
+      --color-back: #121212;
+      --color-back-raised: #232323;
+      --color-back-raised-hover: #2a2a2a;
+      --color-back-status: #1d1d1d;
+      --color-back-status-na: #1d1d1d;
+      --color-back-config: #1d1d1d;
+      --color-link: #646cff;
+
+      --color-shadow-a: #none;
+      --color-shadow-b: none;
+      --color-shadow-a-hover: none;
+      --color-shadow-b-hover: none;
+
+      --color-shadow-status-a: none;
+      --color-shadow-status-b: none;
+
+      --color-shadow-config-a: none;
+      --color-shadow-config-b: none;
+
+      --color-border-status: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      html {
+        --color-text: #bbb;
+        --color-text-hover: white;
+        --color-text-soft: #666;
+        --color-back: #121212;
+        --color-back-raised: #232323;
+        --color-back-raised-hover: #2a2a2a;
+        --color-back-status: #1d1d1d;
+        --color-back-status-na: #1d1d1d;
+        --color-back-config: #1d1d1d;
+        --color-link: #646cff;
+
+        --color-shadow-a: #none;
+        --color-shadow-b: none;
+        --color-shadow-a-hover: none;
+        --color-shadow-b-hover: none;
+
+        --color-shadow-status-a: none;
+        --color-shadow-status-b: none;
+
+        --color-shadow-config-a: none;
+        --color-shadow-config-b: none;
+
+        --color-border-status: none;
+      }
+
+      html.light {
+        --color-text: #2c3e50;
+        --color-text-hover: #828282;
+        --color-text-soft: gray;
+        --color-back: white;
+        --color-back-raised: white;
+        --color-back-raised-hover: white;
+        --color-back-status: #fbfbfb;
+        --color-back-status-na: #fbfbfb;
+        --color-back-config: white;
+        --color-link: #646cff;
+
+        --color-shadow-a: #e4e4e6;
+        --color-shadow-b: #fbfbfb;
+        --color-shadow-a-hover: #e0e0e1;
+        --color-shadow-b-hover: #f6f6f6;
+
+        --color-shadow-status-a: #e4e4e6;
+        --color-shadow-status-b: #fbfbfb;
+
+        --color-shadow-config-a: #e4e4e6;
+        --color-shadow-config-b: #fbfbfb;
+
+        --color-border-status: #42b98344;
+      }
+    }
+
+    body {
+      color: var(--color-text);
+      background-color: var(--color-back);
+    }
+  </style>
 </head>
 
 <body>
