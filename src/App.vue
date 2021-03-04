@@ -11,7 +11,7 @@
   <main>
     <div class="info">
       <h3 @click="aboutExpanded = !aboutExpanded">
-        A list of rollup plugins compatibility for <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite v2.0.0</a>
+        A list of rollup plugins compatibility for <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite v2.0.5</a>
       </h3>
       <a class="about-toggle" @click="aboutExpanded = !aboutExpanded">
         <IconInfo v-if="!aboutExpanded" />
