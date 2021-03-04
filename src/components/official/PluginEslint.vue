@@ -3,6 +3,7 @@
     :official="true"
     name="eslint"
     description="Verify entry point and all imported files with ESLint"
+    enforce="pre"
     status="compatible"
     options="{ include: '**/*.+(vue|js|jsx|ts|tsx)' }"
     apply="build"
