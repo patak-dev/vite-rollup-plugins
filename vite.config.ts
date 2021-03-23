@@ -73,7 +73,7 @@ export default defineConfig({
       batman: `export default 'na na na na na'`,
       'src/robin.js': `export default 'batmannnnn'`
     }),
-    Strip({ include: '**/*.+(vue|js)' }),
+    Strip({ include: '**/*.+(vue|js|ts)' }),
     /* normally you would use it only during build, included in dev for testing
     {
       ...strip(),
@@ -85,7 +85,6 @@ export default defineConfig({
     /**
      * Community Plugins
      */
-
     /* [todo] reported sizes are not correct
     {
       ...analyze({ summaryOnly: true }),
