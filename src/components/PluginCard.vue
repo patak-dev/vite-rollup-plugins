@@ -10,7 +10,7 @@
       class="copy-to-clipboard" 
       @click="copyToClipboard()"
     >
-      <fe-link />
+      <fe-hash />
     </span>
     <div class="card-header">
       <p>
@@ -94,7 +94,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineProps, useContext } from "vue";
+import { ref, computed, defineProps, useContext, onMounted } from "vue";
 import { useClipboard } from '@vueuse/core'
 
 const props = defineProps({
@@ -131,7 +131,15 @@ const { copy } = useClipboard()
 
 const copyToClipboard = () => {
   copy(`${window.location.host}/#${props.name}`)
+  window.location.hash = props.name
 }
+
+onMounted(() => {
+  // Auto expand the description if hash matches
+  if (window.location.hash === `#${props.name}`) {
+    expanded.value = true
+  }
+})
 
 const pluginCode = computed(() => {
   return props.enforce || props.apply ? `{
@@ -299,16 +307,16 @@ a:active {
   opacity: 0;
   position: absolute;
   left: 0rem;
-  top: 0;
   background: var(--color-back-raised);
   border-radius: 50%;
-  transform: translateY(-25%) translateX(-50%);
-  width: 2.5rem;
-  height: 2.5rem;
+  transform: translateY(-15%) translateX(-50%);
+  width: 1.75rem;
+  height: 1.75rem;
   display: flex;
   place-items: center;
   place-content: center;
   transition: opacity 200ms ease;
+  font-size: 0.875rem;
 }
 
 .copy-to-clipboard:active {

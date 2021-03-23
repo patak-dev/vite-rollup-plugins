@@ -1,5 +1,7 @@
-import { definePlugin, PluginStatus, PluginCategory } from '~/util'
-import PluginStrip from '~/components/official/PluginStrip.vue'
+import { definePlugin, PluginStatus, PluginCategory, html } from '~/util'
+
+console.log("this will be removed");
+// debugger; // uncomment to test removal during 
 
 export default definePlugin({
   name: 'strip',
@@ -7,5 +9,9 @@ export default definePlugin({
   status: PluginStatus.Compatible,
   category: PluginCategory.Official,
   apply: 'build',
-  demo: PluginStrip,
+  demo() {
+    return html`
+      <p>"this will be removed" should not appear in the console</p>
+    `
+  },
 })

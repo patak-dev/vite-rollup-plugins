@@ -1,6 +1,4 @@
-import { definePlugin, PluginCategory, PluginStatus } from '~/util'
-import PluginTypescript2Info from '~/components/community/PluginTypescript2Info.vue'
-import PluginStringInfo from '~/components/community/PluginStringInfo.vue'
+import { definePlugin, PluginCategory, PluginStatus, html } from '~/util'
 
 export default definePlugin([
   {
@@ -9,7 +7,11 @@ export default definePlugin([
     docs: 'https://github.com/ezolenko/rollup-plugin-typescript2',
     status: PluginStatus.Compatible,
     apply: 'build',
-    info: PluginTypescript2Info,
+    info() {
+      return html`
+        <p>Good plugin to generate types at build time. Vite already has support for Typescript otherwise.</p>
+      `
+    },
   },
   {
     name: 'rollup-plugin-off-main-thread',
@@ -99,7 +101,12 @@ export default definePlugin([
     docs: 'https://github.com/TrySound/rollup-plugin-string#readme',
     link: 'https://vitejs.dev/guide/assets.html#importing-asset-as-string',
     status: PluginStatus.Covered,
-    info: PluginStringInfo,
+    info() {
+      return html`
+      <p>You can use the ?raw suffix to import assets as strings</p>
+      <pre><code>import tpl from "./tpl.html?raw";\nconsole.log(\`Template for render: \${tpl}\`);</code></pre>
+      `
+    },
   },
   {
     name: 'rollup-plugin-serve',

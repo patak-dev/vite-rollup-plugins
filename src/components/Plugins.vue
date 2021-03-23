@@ -9,7 +9,17 @@ const results = shallowRef<RollupPlugin[]>([])
 const search = ref('')
 const status = ref('all')
 const fuse = new Fuse<RollupPlugin>(plugins, {
-  keys: ['title', 'description']
+  distance: 30,
+  keys: [
+    {
+      name: 'name',
+      weight: 1,
+    },
+    {
+      name: 'description',
+      weight: 0.3,
+    },
+  ]
 })
 
 const sortPlugins = (a: any, b: any) => {
@@ -27,27 +37,49 @@ watch(search, () => {
 }, { immediate: true })
 
 const officalPlugins = computed(() => {
-  return results.value
-    .filter(x => x.category === PluginCategory.Official)
-    .filter(x => {
-      if (status.value === 'all')
-        return true
-
-      return x.status === status.value
-    })
-    .sort(sortPlugins)
+  if (search.value.length === 0) {
+    return results.value
+      .filter(x => x.category === PluginCategory.Official)
+      .filter(x => {
+        if (status.value === 'all')
+          return true
+  
+        return x.status === status.value
+      })
+      .sort(sortPlugins)
+  } else {
+    return results.value
+      .filter(x => x.category === PluginCategory.Official)
+      .filter(x => {
+        if (status.value === 'all')
+          return true
+  
+        return x.status === status.value
+      })
+  }
 })
 
 const communityPlugins = computed(() => {
-  return results.value
-    .filter(x => x.category === PluginCategory.Community)
-    .filter(x => {
-      if (status.value === 'all')
-        return true
-
-      return x.status === status.value
-    })
-    .sort(sortPlugins)
+  if (search.value.length === 0) {
+    return results.value
+      .filter(x => x.category === PluginCategory.Community)
+      .filter(x => {
+        if (status.value === 'all')
+          return true
+  
+        return x.status === status.value
+      })
+      .sort(sortPlugins)
+  } else {
+    return results.value
+      .filter(x => x.category === PluginCategory.Community)
+      .filter(x => {
+        if (status.value === 'all')
+          return true
+  
+        return x.status === status.value
+      })
+  }
 })
 </script>
 

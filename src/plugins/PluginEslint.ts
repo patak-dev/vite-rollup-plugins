@@ -1,5 +1,4 @@
-import { definePlugin, PluginStatus, PluginCategory } from '~/util'
-import PluginEslint from '~/components/official/PluginEslint.vue'
+import { definePlugin, PluginStatus, PluginCategory, html } from '~/util'
 
 export default definePlugin({
   name: 'eslint',
@@ -9,5 +8,9 @@ export default definePlugin({
   apply: 'build',
   status: PluginStatus.Compatible,
   category: PluginCategory.Official,
-  demo: PluginEslint,
+  demo() {
+    return html`
+      <p>Add an .eslintrc.js to root</p>
+    `
+  },
 })

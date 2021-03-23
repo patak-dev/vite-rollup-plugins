@@ -1,5 +1,4 @@
-import { definePlugin, PluginStatus, PluginCategory } from '~/util'
-import PluginLegacy from '~/components/official/PluginLegacy.vue'
+import { definePlugin, PluginStatus, PluginCategory, html } from '~/util'
 // @ts-ignore
 import legacyLibrary from '~/assets/legacy.js'
 
@@ -10,5 +9,10 @@ export default definePlugin({
   description: 'Add export declarations to legacy non-module scripts',
   status: r === 8 ? PluginStatus.Compatible : PluginStatus.Error,
   category: PluginCategory.Official,
-  demo: PluginLegacy,
+  demo() {
+    return html`
+      <p>Import from a legacy library</p>
+      <pre>${r}</pre>
+    `
+  },
 })

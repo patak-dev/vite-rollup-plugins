@@ -1,5 +1,10 @@
-import { definePlugin, PluginStatus, PluginCategory } from '~/util'
-import PluginVirtual from '~/components/official/PluginVirtual.vue'
+import { definePlugin, PluginStatus, PluginCategory, html } from '~/util'
+
+// Virtual files defined in vite.config.js
+// @ts-ignore
+import batman from 'batman'
+// @ts-ignore
+import robin from 'src/robin.js'
 
 export default definePlugin({
   name: 'virtual',
@@ -9,5 +14,9 @@ export default definePlugin({
   usage: `import v from "virtualFile"`,
   status: PluginStatus.Compatible,
   category: PluginCategory.Official,
-  demo: PluginVirtual,
+  demo() {
+    return html`
+      <pre>${robin + " " + batman}</pre>
+    `
+  },
 })

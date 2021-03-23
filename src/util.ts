@@ -1,4 +1,6 @@
 import type { Plugin, PluginCategory } from './types'
+import htm from 'htm'
+import { h } from 'vue'
 export { PluginCategory, PluginStatus } from './types'
 
 export function definePlugin(plugins: Plugin | Plugin[], category?: PluginCategory) {
@@ -15,3 +17,4 @@ export function definePlugin(plugins: Plugin | Plugin[], category?: PluginCatego
   return _plugins
 }
 
+export const html = htm.bind(h)
