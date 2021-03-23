@@ -1,26 +1,60 @@
 <template>
   <header>
+    <h1>
+      <img
+        class="logo vite"
+        style="transform:translateY(0.5px);"
+        widht="36"
+        height="36"
+        src="/logo.svg"
+      ><span style="color: #646cff;">ite</span> <img
+        class="logo rollup"
+        style="padding-left:6px;transform:translateY(0.5px);"
+        height="35"
+        widht="35"
+        src="/rollup.svg"
+      ><span style="color:rgb(239, 51, 53);">ollup</span> Plugins
+    </h1>
     
-    <h1><img class="logo vite" style="transform:translateY(0.5px);" widht="36" height="36" src="/public/logo.svg" /><span style="color: #646cff;">ite</span> <img class="logo rollup" style="padding-left:6px;transform:translateY(0.5px);" height="35" widht="35" src="/public/rollup.svg" /><span style="color:rgb(239, 51, 53);">ollup</span> Plugins</h1>
-    
-    <a class="theme-toggle" @click="toggleDark">
-      <IconDark v-if="isDark"/>
-      <IconLight v-else/>
+    <a
+      class="github-link"
+      href="https://github.com/matias-capeletto/vite-rollup-plugins"
+      target="_blank"
+    >
+      <fe-github />
+    </a>
+    <a
+      class="theme-toggle"
+      @click="toggleDark"
+    >
+      <fe-moon v-if="isDark" />
+      <fe-sunny-o v-else />
     </a>
   </header>
   <main>
     <div class="info">
       <h3 @click="aboutExpanded = !aboutExpanded">
-        A list of rollup plugins compatibility for <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite v2.1.2</a>
+        A list of rollup plugins compatibility for <a
+          href="https://vitejs.dev/"
+          target="_blank"
+          rel="noopener"
+        >Vite v2.1.2</a>
       </h3>
-      <a class="about-toggle" @click="aboutExpanded = !aboutExpanded">
-        <IconInfo v-if="!aboutExpanded" />
-        <IconCollapse v-else/>
+      <a
+        class="about-toggle"
+        @click="aboutExpanded = !aboutExpanded"
+      >
+        <fe-info v-if="!aboutExpanded" />
+        <fe-arrow-up v-else />
       </a>
       <template v-if="aboutExpanded">
         <p>
           This page is built using
-          <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite 2</a>,
+          <a
+            href="https://vitejs.dev/"
+            target="_blank"
+            rel="noopener"
+          >Vite 2</a>,
           and it is intended to also be a playground for compatible rollup
           plugins. All of these plugins are being used as part of building this
           page. Click the <strong>+</strong> button of a compatible plugin to see
@@ -32,83 +66,71 @@
             href="https://github.com/vitejs/awesome-vite"
             target="_blank"
             rel="noopener"
-            >Awesome Vite</a
-          >. Some popular community maintained plugins are also included. For other community rollup plugins, like the ones in the
+          >Awesome Vite</a>. Some popular community maintained plugins are also included. For other community rollup plugins, like the ones in the
           <a
             href="https://github.com/rollup/awesome"
             target="_blank"
             rel="noopener"
-            >Awesome Rollup list</a
-          >, refer to the Vite Docs section about
+          >Awesome Rollup list</a>, refer to the Vite Docs section about
           <a
             href="https://vitejs.dev/guide/api-plugin.html#rollup-plugin-compatiblity"
             target="_blank"
             rel="noopener"
-            >rollup plugin compatibility</a
-          >.
+          >rollup plugin compatibility</a>.
         </p>
         <div class="legend">
           <span><strong>covered</strong></span>
           <span>Features that are part of Vite. These plugins are unneeded</span>
-          <span><strong>included</strong></span
-          ><span>Plugins that are already shipped out of the box with Vite</span>
-          <span><strong>compatible</strong></span
-          ><span>Plugins that work properly when used with Vite</span>
-          <span><strong>incompatible</strong></span
-          ><span>Plugins that can not currently be used with Vite</span>
-          <span><strong>n/a</strong></span
-          ><span>Plugins that are not applicable for Vite use cases</span>
-          <span><strong>todo</strong></span
-          ><span
-            >Plugins that have not been added to the list yet,
+          <span><strong>included</strong></span><span>Plugins that are already shipped out of the box with Vite</span>
+          <span><strong>compatible</strong></span><span>Plugins that work properly when used with Vite</span>
+          <span><strong>incompatible</strong></span><span>Plugins that can not currently be used with Vite</span>
+          <span><strong>n/a</strong></span><span>Plugins that are not applicable for Vite use cases</span>
+          <span><strong>todo</strong></span><span>Plugins that have not been added to the list yet,
             <a
               href="https://github.com/matias-capeletto/vite-rollup-plugins"
               target="_blank"
               rel="noopener"
-              >PRs welcome</a
-            >
+            >PRs welcome</a>
           </span>
         </div>
       </template>
     </div>
-    <OfficialPlugins />
-    <div class="info community">
-      <h3>
-        Popular Community Maintained Rollup Plugins
-      </h3>
-      <p>Work In Progress, <a
-            href="https://github.com/matias-capeletto/vite-rollup-plugins"
-            target="_blank"
-            rel="noopener"
-            >PRs welcome</a
-          ></p>
-    </div>
-    <CommunityPlugins />
+    <Plugins />
     <footer>
-      <a href="https://twitter.com/patak_js" target="_blank" rel="noopener"
-        >@patak_js</a
-      >
+      <a
+        href="https://twitter.com/patak_js"
+        target="_blank"
+        rel="noopener"
+      >@patak_js</a>
       •
-      <a href="https://patak.dev" target="_blank" rel="noopener">patak.dev</a> •
+      <a
+        href="https://patak.dev"
+        target="_blank"
+        rel="noopener"
+      >patak.dev</a> •
       MIT Licensed • Copyright © 2021 Matias Capeletto
     </footer>
   </main>
 </template>
 
-<script setup>
-import OfficialPlugins from './components/OfficialPlugins.vue';
-import CommunityPlugins from './components/CommunityPlugins.vue';
-import IconInfo from './icons/IconInfo.vue' 
-import IconCollapse from './icons/IconCollapse.vue' 
-import IconDark from './icons/IconDark.vue'
-import IconLight from './icons/IconLight.vue'
+<script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const isDark = useDark({ valueLight: 'light' })
 const toggleDark = useToggle(isDark)
 
 const aboutExpanded = ref(false)
+
+onMounted(() => {
+  // Try to scroll selected into view
+
+  if (window && window.location.hash)
+    document.querySelector(window.location.hash)?.scrollIntoView({
+      behavior: 'smooth',
+    })
+  
+})
 </script>
 
 <style>
@@ -175,8 +197,22 @@ footer {
   position: fixed;
   top: 12px;
   right: 12px;
+  z-index: 10;
 }
 .theme-toggle:hover {
+  cursor: pointer;
+  color: var(--color-text-hover);
+}
+
+.github-link {
+  color: var(--color-text);
+  position: fixed;
+  top: 12px;
+  right: 42px;
+  z-index: 10;
+}
+
+.github-link:hover {
   cursor: pointer;
   color: var(--color-text-hover);
 }

@@ -1,27 +1,37 @@
 <template>
   <div
+    :id="name"
     :class="['plugin-card', status === 'n/a' ? 'na' : status]"
     :style="{
       opacity: status === 'todo' ? 0.25 : 1,
     }"
   >
+    <span 
+      class="copy-to-clipboard" 
+      @click="copyToClipboard()"
+    >
+      <fe-hash />
+    </span>
     <div class="card-header">
       <p>
         <a
           :href="docsLink"
           target="_blank"
           rel="noopener"
-          >{{ name }}</a
-        ><template v-if="enforce"
-          ><a
+        >
+          {{ name }}
+        </a>
+        <template v-if="enforce">
+          <a
             href="https://vitejs.dev/guide/api-plugin.html#plugin-ordering"
             target="_blank"
             rel="noopener"
-            ><span class="enforce">
-              <code>enforce: '{{ enforce }}'</code></span
-            ></a
-          ></template
-        >
+          >
+            <span class="enforce">
+              <code>enforce: '{{ enforce }}'</code>
+            </span>
+          </a>
+        </template>
       </p>
       <p>{{ description }}</p>
       <template v-if="status === 'compatible' && expanded">
@@ -29,31 +39,52 @@
           <pre><code>{{ `$ npm i -D ${npmCode}` }}</code></pre>
         </div>
         <div class="config-code">
-          <p class="file-name">vite.config.js</p>
+          <p class="file-name">
+            vite.config.js
+          </p>
           <pre><code>{{ viteConfigCode }}</code></pre>
         </div>
-        <div v-if="usage" class="config-code">
-          <p class="file-name">app code</p>
+        <div
+          v-if="usage"
+          class="config-code"
+        >
+          <p class="file-name">
+            app code
+          </p>
           <pre><code>{{ usage }}</code></pre>
         </div>
       </template>
     </div>
     <p class="status">
-      <a class="info-toggle" v-if="hasDetails" @click="expanded = !expanded">
-        <IconInfo v-if="!expanded" />
-        <IconCollapse v-else/>
+      <a
+        v-if="hasDetails"
+        class="info-toggle"
+        @click="expanded = !expanded"
+      >
+        <fe-info v-if="!expanded" />
+        <fe-arrow-up v-else />
       </a>
-      <a v-if="link" :href="link" target="_blank">{{ status }}</a>
+      <a
+        v-if="link"
+        :href="link"
+        target="_blank"
+      >{{ status }}</a>
       <template v-else>
         {{ status }}
       </template>
     </p>
-    <div class="test" v-if="expanded && hasInfo">
+    <div
+      v-if="expanded && hasInfo"
+      class="test"
+    >
       <div class="details">
-        <slot name="info"/>
+        <slot name="info" />
       </div>
     </div>
-    <div class="test" v-if="expanded && hasTest">
+    <div
+      v-if="expanded && hasTest"
+      class="test"
+    >
       <p>Test</p>
       <div class="details">
         <slot />
@@ -62,10 +93,9 @@
   </div>
 </template>
 
-<script setup>
-import IconInfo from '../icons/IconInfo.vue' 
-import IconCollapse from '../icons/IconCollapse.vue' 
-import { ref, computed, defineProps, useContext } from "vue";
+<script setup lang="ts">
+import { ref, computed, defineProps, useContext, onMounted } from "vue";
+import { useClipboard } from '@vueuse/core'
 
 const props = defineProps({
   name: { type: String, required: true },
@@ -96,6 +126,20 @@ const expanded = ref(false);
 const nameCode = computed(() => camelCase(props.name.replace('rollup-plugin-','')));
 
 const npmCode = computed(() => props.npm || ( props.official ? `@rollup/plugin-${props.name}` : props.name ))
+
+const { copy } = useClipboard()
+
+const copyToClipboard = () => {
+  copy(`${window.location.host}/#${props.name}`)
+  window.location.hash = props.name
+}
+
+onMounted(() => {
+  // Auto expand the description if hash matches
+  if (window.location.hash === `#${props.name}`) {
+    expanded.value = true
+  }
+})
 
 const pluginCode = computed(() => {
   return props.enforce || props.apply ? `{
@@ -252,6 +296,31 @@ a:active {
   color: var(--color-text-soft);
   top: 15px;
   right: 15px;
+}
+
+.plugin-card:hover .copy-to-clipboard {
+  opacity: 1;
+}
+
+.copy-to-clipboard {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  left: 0rem;
+  background: var(--color-back-raised);
+  border-radius: 50%;
+  transform: translateY(-15%) translateX(-50%);
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  transition: opacity 200ms ease;
+  font-size: 0.875rem;
+}
+
+.copy-to-clipboard:active {
+  background: var(--color-link);
 }
 
 @media screen and (max-width: 650px) {
