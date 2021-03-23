@@ -53,6 +53,29 @@ yarn build
 
 This is work in progress, there are some official plugins that remain untested. PRs welcomed.
 
+### Adding a Plugin
+Start by adding your plugin to `src/plugins` folder. If you'd like your plugin to 
+display a test component, then create a new file for it as `YourPlugin.ts`. 
+Otherwise you can add it to `OfficalPlugins.ts` if it is an offical plugin or 
+`CommunityPlugins.ts` if it is a community plugin.
+
+When writing a plugin make sure you use the `definePlugin` function to define your plugin.
+
+**Example Plugin**
+```ts
+import { definePlugin, PluginStatus, PluginCategory } from '~/util'
+import PluginBeep from '~/components/official/PluginBeep.vue'
+
+export default definePlugin({
+  name: 'beep',
+  description: 'System beeps on errors and warnings',
+  category: PluginCategory.Official,
+  status: PluginStatus.Compatible,
+  demo: PluginBeep,
+})
+```
+
+
 ## Links
 
 - [Vite 2](https://github.com/vitejs/vite)

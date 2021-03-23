@@ -1,23 +1,13 @@
 <template>
-  <PluginCard
-    :official="true"
-    name="image"
-    description="Import JPG, PNG, GIF, SVG, and WebP files"
-    enforce="pre"
-    :status="
-      base64.startsWith('data:image/png;base64,iVBORw0KGgoAAAANSU')
-        ? 'compatible'
-        : 'error'
-    "
+  <img
+    :src="base64"
+    alt="base64 encoded image"
   >
-    <img :src="base64" alt="base64 encoded image" />
-    <p>{{ base64 }}</p>
-  </PluginCard>
+  <p>{{ base64 }}</p>
 </template>
 
 <script setup>
-import PluginCard from "../PluginCard.vue";
-import base64 from "../../assets/logo.png";
+import base64 from "~/assets/logo.png";
 </script>
 
 <style scoped>

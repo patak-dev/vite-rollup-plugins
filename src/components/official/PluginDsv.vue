@@ -1,15 +1,7 @@
 <template>
-  <PluginCard
-    :official="true"
-    name="dsv"
-    description="Convert .csv and .tsv files into JavaScript modules with d3-dsv"
-    :status="csv.length === 3 ? 'compatible' : 'error'"
-  >
-    <pre>{{ JSON.stringify(csv, null, 2) }}</pre>
-  </PluginCard>
+  <pre>{{ JSON.stringify(csv, null, 2) }}</pre>
 </template>
 
-<script setup>
-import PluginCard from "../PluginCard.vue";
+<script setup lang="ts">
 import csv from "../../assets/file.csv";
 </script>
