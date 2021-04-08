@@ -67,11 +67,14 @@ const status = useVModel(props, 'status', emit)
   flex-direction: row;
   height: 100%;
   align-items: center;
+  max-width: 100%;
+  overflow: hidden;
   flex: 1;
 }
 
 .search-icon {
   margin: 0 1rem;
+  flex-shrink: 0;
 }
 
 .search-container input {
@@ -91,6 +94,8 @@ const status = useVModel(props, 'status', emit)
   display: flex;
   align-items: center;
   position: relative;
+  flex-shrink: 0;
+  max-width: 100%;
 }
 
 .select-container select {
@@ -103,6 +108,9 @@ const status = useVModel(props, 'status', emit)
   font-size: 1rem;
   font-family: inherit;
   outline: none;
+  flex-shrink: 0;
+  max-width: 100%;
+  flex-grow: 0;
 }
 
 .select-container select option {
