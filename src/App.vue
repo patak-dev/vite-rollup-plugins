@@ -38,7 +38,7 @@
           href="https://vitejs.dev/"
           target="_blank"
           rel="noopener"
-        >Vite v2.1.2</a>
+        >Vite v2.3.4</a>
       </h3>
       <a
         class="about-toggle"

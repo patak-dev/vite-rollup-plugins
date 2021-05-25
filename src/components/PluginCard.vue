@@ -226,7 +226,7 @@ a:active {
 
 .enforce {
   padding-left: 30px;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 
 .status {
