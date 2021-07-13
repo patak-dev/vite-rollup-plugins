@@ -142,6 +142,6 @@ export default definePlugin([
     name: 'rollup-plugin-visualizer',
     description: 'Visualize and analyze your Rollup bundle to see which modules are taking up space',
     docs: 'https://github.com/btd/rollup-plugin-visualizer#readme',
-    status: PluginStatus.Todo,
+    status: PluginStatus.Compatible,
   },
 ], PluginCategory.Community)
