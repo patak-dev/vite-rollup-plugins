@@ -144,4 +144,10 @@ export default definePlugin([
     docs: 'https://github.com/btd/rollup-plugin-visualizer#readme',
     status: PluginStatus.Compatible,
   },
+  {
+    name: 'rollup-plugin-minify-html-literals',
+    description: 'Uses minify-html-literals to minify HTML and CSS markup inside JavaScript template literal strings.',
+    docs: 'https://github.com/asyncLiz/rollup-plugin-minify-html-literals#readme',
+    status: PluginStatus.Compatible,
+  },
 ], PluginCategory.Community)
