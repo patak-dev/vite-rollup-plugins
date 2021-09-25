@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineEmit, defineProps } from 'vue'
 import { useVModel } from '@vueuse/core'
 
 const options = [
@@ -14,7 +13,7 @@ const options = [
 ]
 
 const props = defineProps({ modelValue: String, status: String })
-const emit = defineEmit(['update:modelValue', 'update:status'])
+const emit = defineEmits(['update:modelValue', 'update:status'])
 const value = useVModel(props, 'modelValue', emit)
 const status = useVModel(props, 'status', emit)
 </script>

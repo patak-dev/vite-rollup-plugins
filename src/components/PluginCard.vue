@@ -94,7 +94,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineProps, useContext, onMounted } from "vue";
+import { ref, computed, useSlots, onMounted } from "vue";
 import { useClipboard } from '@vueuse/core'
 
 const props = defineProps({
@@ -111,7 +111,7 @@ const props = defineProps({
   official: { type: Boolean, default: false }
 });
 
-const { slots } = useContext();
+const slots = useSlots();
 
 const hasTest = computed(() => props.status !== "todo" && !!slots.default);
 
