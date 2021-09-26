@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, useSlots, onMounted } from "vue";
 import { useClipboard } from '@vueuse/core'
-import { highlighter } from '../highlighter'
-
-const highlight = highlighter.codeToHtml
+import Highlight from "./Highlight.vue";
 
 const props = defineProps({
   name: { type: String, required: true },
@@ -20,35 +18,24 @@ const props = defineProps({
 });
 
 const slots = useSlots();
-
 const hasTest = computed(() => props.status !== "todo" && !!slots.default);
-
 const hasInfo = computed(() => props.status !== "todo" && !!slots.info);
-
 const hasDetails = computed( () => hasTest.value || hasInfo.value );
-
 const docsLink = computed( () => props.docs || `https://github.com/rollup/plugins/tree/master/packages/${props.name}` );
-
 const expanded = ref(false);
-
 const nameCode = computed(() => camelCase(props.name.replace('rollup-plugin-','')));
-
 const npmCode = computed(() => props.npm || ( props.official ? `@rollup/plugin-${props.name}` : props.name ))
-
 const { copy } = useClipboard()
-
 const copyToClipboard = () => {
   copy(`${window.location.host}/#${props.name}`)
   window.location.hash = props.name
 }
-
 onMounted(() => {
   // Auto expand the description if hash matches
   if (window.location.hash === `#${props.name}`) {
     expanded.value = true
   }
 })
-
 const pluginCode = computed(() => {
   return props.enforce || props.apply ? `{
       ...${nameCode.value}(${props.options}),${ 
@@ -56,18 +43,14 @@ const pluginCode = computed(() => {
         props.apply ? `\n      apply: '${props.apply}',` : '' }
     }` : `${nameCode.value}(${props.options})`
 })
-
 const viteConfigCode = computed(() => {
-  return `import ${nameCode.value} from "${npmCode.value}"
-          
-export default {
+  return `import ${nameCode.value} from "${npmCode.value}"\n\nexport default {
   plugins: [
     ${pluginCode.value},
   ]
 }
 `;
 });
-
 // move to util.js
 function camelCase(str) {
   let dash = false;
@@ -83,6 +66,7 @@ function camelCase(str) {
   }, "");
 }
 </script>
+
 
 <template>
   <div
@@ -122,13 +106,24 @@ function camelCase(str) {
       <p>{{ description }}</p>
       <template v-if="status === 'compatible' && expanded">
         <div class="install-code">
+          <pre><code>{{ `$ npm i -D ${npmCode}` }}</code></pre>
           <code><pre>$ npm i -D {{ npmCode }}</pre></code>
         </div>
         <div class="config-code">
           <p class="file-name">
             vite.config.js
           </p>
-          <div v-html="highlight(viteConfigCode, 'js')" />
+          <Suspense>
+            <template #default>
+              <Highlight
+                :code="viteConfigCode"
+                language="js"
+              />
+            </template>
+            <template #fallback>
+              <pre><code>{{ viteConfigCode }}</code></pre>
+            </template>
+          </Suspense>
         </div>
         <div
           v-if="usage"

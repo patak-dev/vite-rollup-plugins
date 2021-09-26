@@ -13,6 +13,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@antfu/utils": "^0.3.0",
     "@vueuse/core": "^4.2.0",
     "fuse.js": "^6.4.6",
     "htm": "^3.0.4",

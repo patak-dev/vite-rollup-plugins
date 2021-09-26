@@ -1,12 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { initHighlighter } from './highlighter'
 import './shiki.css'
 
-initHighlighter()
-  .finally(() => {
-    createApp(App).mount('#app')
-  })
+createApp(App).mount('#app')
 
 /* Testing @rollup/plugin-babel
 function doubleSay(str) {

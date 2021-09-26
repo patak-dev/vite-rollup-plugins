@@ -1,13 +1,11 @@
-import { setOnigasmWASM, setCDN, Highlighter, getHighlighter } from 'shiki'
+import { setOnigasmWASM, setCDN, getHighlighter } from 'shiki'
+import { createSingletonPromise } from '@antfu/utils'
 
 setOnigasmWASM('/shiki/dist/onigasm.wasm')
 setCDN('/shiki/')
 
-export let highlighter: Highlighter
+export const useHighlighter = createSingletonPromise(async () => {
+  const highlighter = await getHighlighter({ theme: 'css-variables', langs: ['js'] })
 
-export async function initHighlighter() {
-  highlighter = await getHighlighter({
-    themes: ['css-variables'],
-    langs: ['js', 'shell', 'fish']
-  })
-}
+  return highlighter
+})
