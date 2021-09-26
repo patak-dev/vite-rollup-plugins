@@ -1,3 +1,73 @@
+<script setup lang="ts">
+import { ref, computed, useSlots, onMounted } from "vue";
+import { useClipboard } from '@vueuse/core'
+import Highlight from "./Highlight.vue";
+
+const props = defineProps({
+  name: { type: String, required: true },
+  docs: { type: String, default: null },
+  npm: { type: String, default: null },
+  description: { type: String, required: true },
+  status: { type: String, default: 'todo' },
+  link: { type: String, default: null },
+  enforce: { type: String, default: null },
+  apply: { type: String, default: null },
+  options: { type: String, default: "" },
+  usage: { type: String, default: null },
+  official: { type: Boolean, default: false }
+});
+
+const slots = useSlots();
+const hasTest = computed(() => props.status !== "todo" && !!slots.default);
+const hasInfo = computed(() => props.status !== "todo" && !!slots.info);
+const hasDetails = computed( () => hasTest.value || hasInfo.value );
+const docsLink = computed( () => props.docs || `https://github.com/rollup/plugins/tree/master/packages/${props.name}` );
+const expanded = ref(false);
+const nameCode = computed(() => camelCase(props.name.replace('rollup-plugin-','')));
+const npmCode = computed(() => props.npm || ( props.official ? `@rollup/plugin-${props.name}` : props.name ))
+const { copy } = useClipboard()
+const copyToClipboard = () => {
+  copy(`${window.location.host}/#${props.name}`)
+  window.location.hash = props.name
+}
+onMounted(() => {
+  // Auto expand the description if hash matches
+  if (window.location.hash === `#${props.name}`) {
+    expanded.value = true
+  }
+})
+const pluginCode = computed(() => {
+  return props.enforce || props.apply ? `{
+      ...${nameCode.value}(${props.options}),${ 
+        props.enforce ? `\n      enforce: '${props.enforce}',` : '' }${ 
+        props.apply ? `\n      apply: '${props.apply}',` : '' }
+    }` : `${nameCode.value}(${props.options})`
+})
+const viteConfigCode = computed(() => {
+  return `import ${nameCode.value} from "${npmCode.value}"\n\nexport default {
+  plugins: [
+    ${pluginCode.value},
+  ]
+}
+`;
+});
+// move to util.js
+function camelCase(str) {
+  let dash = false;
+  return str.split("").reduce((p, c) => {
+    if (c === "-") {
+      dash = true;
+      return p;
+    } else {
+      const r = p + (dash ? c.toUpperCase() : c);
+      dash = false;
+      return r;
+    }
+  }, "");
+}
+</script>
+
+
 <template>
   <div
     :id="name"
@@ -37,12 +107,23 @@
       <template v-if="status === 'compatible' && expanded">
         <div class="install-code">
           <pre><code>{{ `$ npm i -D ${npmCode}` }}</code></pre>
+          <code><pre>$ npm i -D {{ npmCode }}</pre></code>
         </div>
         <div class="config-code">
           <p class="file-name">
             vite.config.js
           </p>
-          <pre><code>{{ viteConfigCode }}</code></pre>
+          <Suspense>
+            <template #default>
+              <Highlight
+                :code="viteConfigCode"
+                language="js"
+              />
+            </template>
+            <template #fallback>
+              <pre><code>{{ viteConfigCode }}</code></pre>
+            </template>
+          </Suspense>
         </div>
         <div
           v-if="usage"
@@ -92,89 +173,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref, computed, useSlots, onMounted } from "vue";
-import { useClipboard } from '@vueuse/core'
-
-const props = defineProps({
-  name: { type: String, required: true },
-  docs: { type: String, default: null },
-  npm: { type: String, default: null },
-  description: { type: String, required: true },
-  status: { type: String, default: 'todo' },
-  link: { type: String, default: null },
-  enforce: { type: String, default: null },
-  apply: { type: String, default: null },
-  options: { type: String, default: "" },
-  usage: { type: String, default: null },
-  official: { type: Boolean, default: false }
-});
-
-const slots = useSlots();
-
-const hasTest = computed(() => props.status !== "todo" && !!slots.default);
-
-const hasInfo = computed(() => props.status !== "todo" && !!slots.info);
-
-const hasDetails = computed( () => hasTest.value || hasInfo.value );
-
-const docsLink = computed( () => props.docs || `https://github.com/rollup/plugins/tree/master/packages/${props.name}` );
-
-const expanded = ref(false);
-
-const nameCode = computed(() => camelCase(props.name.replace('rollup-plugin-','')));
-
-const npmCode = computed(() => props.npm || ( props.official ? `@rollup/plugin-${props.name}` : props.name ))
-
-const { copy } = useClipboard()
-
-const copyToClipboard = () => {
-  copy(`${window.location.host}/#${props.name}`)
-  window.location.hash = props.name
-}
-
-onMounted(() => {
-  // Auto expand the description if hash matches
-  if (window.location.hash === `#${props.name}`) {
-    expanded.value = true
-  }
-})
-
-const pluginCode = computed(() => {
-  return props.enforce || props.apply ? `{
-      ...${nameCode.value}(${props.options}),${ 
-        props.enforce ? `\n      enforce: '${props.enforce}',` : '' }${ 
-        props.apply ? `\n      apply: '${props.apply}',` : '' }
-    }` : `${nameCode.value}(${props.options})`
-})
-
-const viteConfigCode = computed(() => {
-  return `import ${nameCode.value} from "${npmCode.value}"
-          
-export default {
-  plugins: [
-    ${pluginCode.value},
-  ]
-}
-`;
-});
-
-// move to util.js
-function camelCase(str) {
-  let dash = false;
-  return str.split("").reduce((p, c) => {
-    if (c === "-") {
-      dash = true;
-      return p;
-    } else {
-      const r = p + (dash ? c.toUpperCase() : c);
-      dash = false;
-      return r;
-    }
-  }, "");
-}
-</script>
 
 <style scoped>
 .plugin-card {

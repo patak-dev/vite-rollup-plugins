@@ -1,3 +1,23 @@
+<script setup lang="ts">
+import { useDark, useToggle } from '@vueuse/core'
+import { ref, onMounted } from 'vue'
+
+const isDark = useDark({ valueLight: 'light' })
+const toggleDark = useToggle(isDark)
+
+const aboutExpanded = ref(false)
+
+onMounted(() => {
+  // Try to scroll selected into view
+
+  if (window && window.location.hash)
+    document.querySelector(window.location.hash)?.scrollIntoView({
+      behavior: 'smooth',
+    })
+  
+})
+</script>
+
 <template>
   <header>
     <h1>
@@ -112,26 +132,6 @@
     </footer>
   </main>
 </template>
-
-<script setup lang="ts">
-import { useDark, useToggle } from '@vueuse/core'
-import { ref, onMounted } from 'vue'
-
-const isDark = useDark({ valueLight: 'light' })
-const toggleDark = useToggle(isDark)
-
-const aboutExpanded = ref(false)
-
-onMounted(() => {
-  // Try to scroll selected into view
-
-  if (window && window.location.hash)
-    document.querySelector(window.location.hash)?.scrollIntoView({
-      behavior: 'smooth',
-    })
-  
-})
-</script>
 
 <style>
 #app {
