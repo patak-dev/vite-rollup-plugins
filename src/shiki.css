@@ -1,0 +1,12 @@
+html {
+  --shiki-color-text: var(--color-text);
+  --shiki-token-constant: #ef3335;
+  --shiki-token-string: var(--color-text);
+  --shiki-token-comment: var(--color-text-soft);
+  --shiki-token-keyword: var(--color-link);
+  --shiki-token-parameter: #ef3335;
+  --shiki-token-function: #ef3335;
+  --shiki-token-string-expression: var(--color-text);
+  --shiki-token-punctuation: var(--color-text-soft);
+  --shiki-token-link: var(--color-link);
+}

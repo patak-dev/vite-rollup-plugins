@@ -1,101 +1,9 @@
-<template>
-  <div
-    :id="name"
-    :class="['plugin-card', status === 'n/a' ? 'na' : status]"
-    :style="{
-      opacity: status === 'todo' ? 0.25 : 1,
-    }"
-  >
-    <span 
-      class="copy-to-clipboard" 
-      @click="copyToClipboard()"
-    >
-      <fe-hash />
-    </span>
-    <div class="card-header">
-      <p>
-        <a
-          :href="docsLink"
-          target="_blank"
-          rel="noopener"
-        >
-          {{ name }}
-        </a>
-        <template v-if="enforce">
-          <a
-            href="https://vitejs.dev/guide/api-plugin.html#plugin-ordering"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="enforce">
-              <code>enforce: '{{ enforce }}'</code>
-            </span>
-          </a>
-        </template>
-      </p>
-      <p>{{ description }}</p>
-      <template v-if="status === 'compatible' && expanded">
-        <div class="install-code">
-          <pre><code>{{ `$ npm i -D ${npmCode}` }}</code></pre>
-        </div>
-        <div class="config-code">
-          <p class="file-name">
-            vite.config.js
-          </p>
-          <pre><code>{{ viteConfigCode }}</code></pre>
-        </div>
-        <div
-          v-if="usage"
-          class="config-code"
-        >
-          <p class="file-name">
-            app code
-          </p>
-          <pre><code>{{ usage }}</code></pre>
-        </div>
-      </template>
-    </div>
-    <p class="status">
-      <a
-        v-if="hasDetails"
-        class="info-toggle"
-        @click="expanded = !expanded"
-      >
-        <fe-info v-if="!expanded" />
-        <fe-arrow-up v-else />
-      </a>
-      <a
-        v-if="link"
-        :href="link"
-        target="_blank"
-      >{{ status }}</a>
-      <template v-else>
-        {{ status }}
-      </template>
-    </p>
-    <div
-      v-if="expanded && hasInfo"
-      class="test"
-    >
-      <div class="details">
-        <slot name="info" />
-      </div>
-    </div>
-    <div
-      v-if="expanded && hasTest"
-      class="test"
-    >
-      <p>Test</p>
-      <div class="details">
-        <slot />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, computed, useSlots, onMounted } from "vue";
 import { useClipboard } from '@vueuse/core'
+import { highlighter } from '../highlighter'
+
+const highlight = highlighter.codeToHtml
 
 const props = defineProps({
   name: { type: String, required: true },
@@ -175,6 +83,101 @@ function camelCase(str) {
   }, "");
 }
 </script>
+
+<template>
+  <div
+    :id="name"
+    :class="['plugin-card', status === 'n/a' ? 'na' : status]"
+    :style="{
+      opacity: status === 'todo' ? 0.25 : 1,
+    }"
+  >
+    <span 
+      class="copy-to-clipboard" 
+      @click="copyToClipboard()"
+    >
+      <fe-hash />
+    </span>
+    <div class="card-header">
+      <p>
+        <a
+          :href="docsLink"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ name }}
+        </a>
+        <template v-if="enforce">
+          <a
+            href="https://vitejs.dev/guide/api-plugin.html#plugin-ordering"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="enforce">
+              <code>enforce: '{{ enforce }}'</code>
+            </span>
+          </a>
+        </template>
+      </p>
+      <p>{{ description }}</p>
+      <template v-if="status === 'compatible' && expanded">
+        <div class="install-code">
+          <code><pre>$ npm i -D {{ npmCode }}</pre></code>
+        </div>
+        <div class="config-code">
+          <p class="file-name">
+            vite.config.js
+          </p>
+          <div v-html="highlight(viteConfigCode, 'js')" />
+        </div>
+        <div
+          v-if="usage"
+          class="config-code"
+        >
+          <p class="file-name">
+            app code
+          </p>
+          <pre><code>{{ usage }}</code></pre>
+        </div>
+      </template>
+    </div>
+    <p class="status">
+      <a
+        v-if="hasDetails"
+        class="info-toggle"
+        @click="expanded = !expanded"
+      >
+        <fe-info v-if="!expanded" />
+        <fe-arrow-up v-else />
+      </a>
+      <a
+        v-if="link"
+        :href="link"
+        target="_blank"
+      >{{ status }}</a>
+      <template v-else>
+        {{ status }}
+      </template>
+    </p>
+    <div
+      v-if="expanded && hasInfo"
+      class="test"
+    >
+      <div class="details">
+        <slot name="info" />
+      </div>
+    </div>
+    <div
+      v-if="expanded && hasTest"
+      class="test"
+    >
+      <p>Test</p>
+      <div class="details">
+        <slot />
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .plugin-card {
