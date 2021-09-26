@@ -106,7 +106,6 @@ function camelCase(str) {
       <p>{{ description }}</p>
       <template v-if="status === 'compatible' && expanded">
         <div class="install-code">
-          <pre><code>{{ `$ npm i -D ${npmCode}` }}</code></pre>
           <code><pre>$ npm i -D {{ npmCode }}</pre></code>
         </div>
         <div class="config-code">
