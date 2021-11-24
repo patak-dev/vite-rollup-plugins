@@ -150,4 +150,11 @@ export default definePlugin([
     docs: 'https://github.com/asyncLiz/rollup-plugin-minify-html-literals#readme',
     status: PluginStatus.Compatible,
   },
+  {
+    name: '@miyaneee/rollup-plugin-json5',
+    description: '🍣 A Rollup plugin which Converts .json5 files to ES6 modules.',
+    docs: 'https://miyaneee.github.io/rollup-plugin-json5/',
+    link: 'https://github.com/Miyaneee/rollup-plugin-json5#miyaneeerollup-plugin-json5',
+    status: PluginStatus.Covered,
+  },
 ], PluginCategory.Community)
