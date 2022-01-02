@@ -58,7 +58,7 @@ onMounted(() => {
           href="https://vitejs.dev/"
           target="_blank"
           rel="noopener"
-        >Vite v2.6.0</a>
+        >Vite v2.7.10</a>
       </h3>
       <a
         class="about-toggle"
