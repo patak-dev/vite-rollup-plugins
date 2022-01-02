@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="/logo.svg" />
+  <link rel="icon" href="logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vite Rollup Plugins</title>
   <meta name="title" content="Vite Rollup Plugins">
@@ -124,11 +124,37 @@
     body {
       color: var(--color-text);
       background-color: var(--color-back);
+
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin-top: 60px;  
+    }
+
+    h1 {
+      font-size: 2.8em;
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
+  <h1>
+    <img
+      class="logo vite"
+      style="transform:translateY(0.5px);"
+      widht="36"
+      height="36"
+      src="logo.svg"
+    ><span style="color: #646cff;">ite</span> <img
+      class="logo rollup"
+      style="padding-left:6px;transform:translateY(0.5px);"
+      height="35"
+      widht="35"
+      src="rollup.svg"
+    ><span style="color:rgb(239, 51, 53);">ollup</span> Plugins
+  </h1>
   <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
 </body>

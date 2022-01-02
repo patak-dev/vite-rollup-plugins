@@ -7,10 +7,10 @@
   "scripts": {
     "copy": "shx mkdir -p public/shiki && shx cp -r node_modules/shiki/{dist,languages,samples,themes} public/shiki/",
     "predev": "pnpm run copy",
-    "dev": "vite",
+    "dev": "vite --open",
     "prebuild": "pnpm run copy",
     "build": "vite build",
-    "serve": "vite preview"
+    "preview": "vite preview --port 4000 --open"
   },
   "dependencies": {
     "@antfu/utils": "^0.3.0",

@@ -19,23 +19,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <header>
-    <h1>
-      <img
-        class="logo vite"
-        style="transform:translateY(0.5px);"
-        widht="36"
-        height="36"
-        src="/logo.svg"
-      ><span style="color: #646cff;">ite</span> <img
-        class="logo rollup"
-        style="padding-left:6px;transform:translateY(0.5px);"
-        height="35"
-        widht="35"
-        src="/rollup.svg"
-      ><span style="color:rgb(239, 51, 53);">ollup</span> Plugins
-    </h1>
-    
+  <header>  
     <a
       class="github-link"
       href="https://github.com/matias-capeletto/vite-rollup-plugins"
@@ -134,18 +118,6 @@ onMounted(() => {
 </template>
 
 <style>
-#app {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;  
-}
-
-h1 {
-  font-size: 2.8em;
-}
-
 h3 {
   cursor: pointer;
 }
