@@ -59,7 +59,16 @@ const officalPlugins = computed(() => {
   }
 })
 
+
+const searchParams = new URLSearchParams(window.location.search);
+const query = searchParams.get("query")
+if (query) {
+  search.value = query
+}
+
 const communityPlugins = computed(() => {
+  window.history.pushState(null, null, `?query=${search.value}`)
+
   if (search.value.length === 0) {
     return results.value
       .filter(x => x.category === PluginCategory.Community)
