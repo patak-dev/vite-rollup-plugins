@@ -67,7 +67,7 @@ if (query) {
 }
 
 const communityPlugins = computed(() => {
-  window.history.pushState(null, null, `?query=${search.value}`)
+  window.history.pushState(null, null, search.value ? `?query=${search.value}`: '')
 
   if (search.value.length === 0) {
     return results.value
