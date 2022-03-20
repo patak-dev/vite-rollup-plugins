@@ -34,6 +34,7 @@ watch(search, () => {
     results.value = plugins
   else
     results.value = fuse.search(search.value).map(x => x.item)
+  window.history.pushState(null, null, search.value ? `?query=${search.value}`: '/')
 }, { immediate: true })
 
 const officalPlugins = computed(() => {
@@ -67,8 +68,6 @@ if (query) {
 }
 
 const communityPlugins = computed(() => {
-  window.history.pushState(null, null, search.value ? `?query=${search.value}`: '')
-
   if (search.value.length === 0) {
     return results.value
       .filter(x => x.category === PluginCategory.Community)
