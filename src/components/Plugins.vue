@@ -22,6 +22,12 @@ const fuse = new Fuse<RollupPlugin>(plugins, {
   ]
 })
 
+const searchParams = new URLSearchParams(window.location.search);
+const query = searchParams.get("query")
+if (query) {
+  search.value = query
+}
+
 const sortPlugins = (a: any, b: any) => {
   let x = a.name.toLocaleLowerCase()
   let y = b.name.toLocaleLowerCase()
@@ -59,13 +65,6 @@ const officalPlugins = computed(() => {
       })
   }
 })
-
-
-const searchParams = new URLSearchParams(window.location.search);
-const query = searchParams.get("query")
-if (query) {
-  search.value = query
-}
 
 const communityPlugins = computed(() => {
   if (search.value.length === 0) {
