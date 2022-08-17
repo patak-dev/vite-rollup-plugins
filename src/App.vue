@@ -29,7 +29,7 @@ onMounted(() => {
     </a>
     <a
       class="theme-toggle"
-      @click="toggleDark"
+      @click="isDark = !isDark"
     >
       <fe-moon v-if="isDark" />
       <fe-sunny-o v-else />
@@ -42,7 +42,7 @@ onMounted(() => {
           href="https://vitejs.dev/"
           target="_blank"
           rel="noopener"
-        >Vite v2.7.10</a>
+        >Vite ~3.0.0</a>
       </h3>
       <a
         class="about-toggle"
@@ -58,7 +58,7 @@ onMounted(() => {
             href="https://vitejs.dev/"
             target="_blank"
             rel="noopener"
-          >Vite 2</a>,
+          >Vite</a>,
           and it is intended to also be a playground for compatible rollup
           plugins. All of these plugins are being used as part of building this
           page. Click the <strong>+</strong> button of a compatible plugin to see

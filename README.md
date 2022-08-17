@@ -78,7 +78,7 @@ export default definePlugin({
 
 ## Links
 
-- [Vite 2](https://github.com/vitejs/vite)
+- [Vite](https://github.com/vitejs/vite)
 - [Vite Plugin API](https://vitejs.dev/guide/api-plugin.html)
 - [Rollup plugins](https://github.com/rollup/plugins)
 - [Awesome Vite](https://github.com/vitejs/awesome-vite)
