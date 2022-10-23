@@ -20,7 +20,7 @@ const props = defineProps({
 const slots = useSlots();
 const hasTest = computed(() => props.status !== "todo" && !!slots.default);
 const hasInfo = computed(() => props.status !== "todo" && !!slots.info);
-const hasDetails = computed( () => hasTest.value || hasInfo.value );
+const hasDetails = computed( () => hasTest.value || hasInfo.value || props.enforce != null || props.apply != null );
 const docsLink = computed( () => props.docs || `https://github.com/rollup/plugins/tree/master/packages/${props.name}` );
 const expanded = ref(false);
 const nameCode = computed(() => camelCase(props.name.replace('rollup-plugin-','')));
@@ -38,8 +38,8 @@ onMounted(() => {
 })
 const pluginCode = computed(() => {
   return props.enforce || props.apply ? `{
-      ...${nameCode.value}(${props.options}),${ 
-        props.enforce ? `\n      enforce: '${props.enforce}',` : '' }${ 
+      ...${nameCode.value}(${props.options}),${
+        props.enforce ? `\n      enforce: '${props.enforce}',` : '' }${
         props.apply ? `\n      apply: '${props.apply}',` : '' }
     }` : `${nameCode.value}(${props.options})`
 })
@@ -76,8 +76,8 @@ function camelCase(str) {
       opacity: status === 'todo' ? 0.25 : 1,
     }"
   >
-    <span 
-      class="copy-to-clipboard" 
+    <span
+      class="copy-to-clipboard"
       @click="copyToClipboard()"
     >
       <fe-hash />
