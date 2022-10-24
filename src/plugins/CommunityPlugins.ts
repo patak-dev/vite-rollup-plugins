@@ -158,6 +158,13 @@ export default definePlugin([
     status: PluginStatus.Covered,
   },
   {
+    name: 'rollup-plugin-node-externals',
+    description: "Automatically declares NodeJS built-in modules and npm dependencies as 'external'",
+    docs: 'https://github.com/Septh/rollup-plugin-node-externals#readme',
+    status: PluginStatus.Compatible,
+    enforce: 'pre'
+  },
+  {
     name: 'rollup-plugin-sourcemaps',
     description: 'Load files with existing source maps',
     docs: 'https://github.com/maxdavidson/rollup-plugin-sourcemaps#readme',
