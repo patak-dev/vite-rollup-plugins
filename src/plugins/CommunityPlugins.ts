@@ -157,4 +157,10 @@ export default definePlugin([
     link: 'https://github.com/Miyaneee/rollup-plugin-json5#miyaneeerollup-plugin-json5',
     status: PluginStatus.Covered,
   },
+  {
+    name: 'rollup-plugin-sourcemaps',
+    description: 'Load files with existing source maps',
+    docs: 'https://github.com/maxdavidson/rollup-plugin-sourcemaps#readme',
+    status: PluginStatus.Compatible,
+  }
 ], PluginCategory.Community)
