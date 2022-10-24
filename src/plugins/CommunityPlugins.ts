@@ -163,5 +163,11 @@ export default definePlugin([
     docs: 'https://github.com/Septh/rollup-plugin-node-externals#readme',
     status: PluginStatus.Compatible,
     enforce: 'pre'
+  },
+  {
+    name: 'rollup-plugin-sourcemaps',
+    description: 'Load files with existing source maps',
+    docs: 'https://github.com/maxdavidson/rollup-plugin-sourcemaps#readme',
+    status: PluginStatus.Compatible,
   }
 ], PluginCategory.Community)
