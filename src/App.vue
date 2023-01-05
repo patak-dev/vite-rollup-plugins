@@ -77,7 +77,7 @@ onMounted(() => {
             rel="noopener"
           >Awesome Rollup list</a>, refer to the Vite Docs section about
           <a
-            href="https://vitejs.dev/guide/api-plugin.html#rollup-plugin-compatiblity"
+            href="https://vitejs.dev/guide/api-plugin.html#rollup-plugin-compatibility"
             target="_blank"
             rel="noopener"
           >rollup plugin compatibility</a>.
