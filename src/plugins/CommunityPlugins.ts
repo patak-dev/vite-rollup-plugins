@@ -169,5 +169,11 @@ export default definePlugin([
     description: 'Load files with existing source maps',
     docs: 'https://github.com/maxdavidson/rollup-plugin-sourcemaps#readme',
     status: PluginStatus.Compatible,
+  },
+  {
+    name: 'rollup-plugin-napi-image',
+    description: 'Rollup plugin for optimizing images powered by @napi-rs/image',
+    docs: 'https://github.com/cijiugechu/rollup-plugin-napi-image#readme',
+    status: PluginStatus.Compatible
   }
 ], PluginCategory.Community)
