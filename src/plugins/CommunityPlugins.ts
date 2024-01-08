@@ -92,7 +92,7 @@ export default definePlugin([
     name: 'rollup-plugin-copy',
     description: 'Copy files and folders, with glob support',
     docs: 'https://github.com/vladshcherbin/rollup-plugin-copy#readme',
-    link: 'https://vitejs.dev/guide/assets.html#the-public-directory',
+    link: 'https://github.com/fengxinming/vite-plugins/tree/main/packages/vite-plugin-external',
     status: PluginStatus.Covered,
   },
   {
