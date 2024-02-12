@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
 import { ref, onMounted } from 'vue'
+import FeInfo from '~icons/fe/info'
+import FeArrowUp from '~icons/fe/arrow-up'
+import FeGitHub from '~icons/fe/github'
+import FeMoon from '~icons/fe/moon'
+import FeSunnyO from '~icons/fe/sunny-o'
 
 const isDark = useDark({ valueLight: 'light' })
 const toggleDark = useToggle(isDark)
@@ -25,14 +30,14 @@ onMounted(() => {
       href="https://github.com/matias-capeletto/vite-rollup-plugins"
       target="_blank"
     >
-      <fe-github />
+      <FeGitHub />
     </a>
     <a
       class="theme-toggle"
       @click="isDark = !isDark"
     >
-      <fe-moon v-if="isDark" />
-      <fe-sunny-o v-else />
+      <FeMoon v-if="isDark" />
+      <FeSunnyO v-else />
     </a>
   </header>
   <main>
@@ -42,14 +47,14 @@ onMounted(() => {
           href="https://vitejs.dev/"
           target="_blank"
           rel="noopener"
-        >Vite ~3.0.0</a>
+        >Vite ~5.1.0</a>
       </h3>
       <a
         class="about-toggle"
         @click="aboutExpanded = !aboutExpanded"
       >
-        <fe-info v-if="!aboutExpanded" />
-        <fe-arrow-up v-else />
+        <FeInfo v-if="!aboutExpanded" />
+        <FeArrowUp v-else />
       </a>
       <template v-if="aboutExpanded">
         <p>
@@ -102,10 +107,10 @@ onMounted(() => {
     <Plugins />
     <footer>
       <a
-        href="https://twitter.com/patak_js"
+        href="https://twitter.com/patak_dev"
         target="_blank"
         rel="noopener"
-      >@patak_js</a>
+      >@patak_dev</a>
       •
       <a
         href="https://patak.dev"

@@ -11,8 +11,10 @@ import Replace from '@rollup/plugin-replace'
 import Strip from '@rollup/plugin-strip'
 import Yaml from '@rollup/plugin-yaml'
 import Virtual from '@rollup/plugin-virtual'
-import Components from 'vite-plugin-components'
-import Icons, { ViteIconsResolver } from 'vite-plugin-icons'
+import Components from 'unplugin-vue-components/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import AutoImport from 'unplugin-auto-import/vite'
 
 // Issues being resolved
 // import autoInstall from '@rollup/plugin-auto-install'
@@ -34,16 +36,19 @@ export default defineConfig({
     },
   },
   plugins: [
+    AutoImport(),
     Vue(),
+    Components({
+      resolvers: [
+        IconsResolver({
+        })
+      ]
+    }),
     Icons({
+      compiler: 'vue3',
       defaultStyle: 'vertical-align: middle;'
     }),
-    Components({
-      customComponentResolvers: [
-        ViteIconsResolver({ componentPrefix: '' }),
-      ],
-    }),
-
+    
     /* WIP, issues being resolved in vite and rollup-plugins
     {
       ...autoInstall(),

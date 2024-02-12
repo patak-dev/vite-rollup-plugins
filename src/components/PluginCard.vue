@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref, computed, useSlots, onMounted } from "vue";
 import { useClipboard } from '@vueuse/core'
+import FeHash from '~icons/fe/hash'
+import FeInfo from '~icons/fe/info'
+import FeArrowUp from '~icons/fe/arrow-up'
+
 import Highlight from "./Highlight.vue";
 
 const props = defineProps({
@@ -80,7 +84,7 @@ function camelCase(str) {
       class="copy-to-clipboard"
       @click="copyToClipboard()"
     >
-      <fe-hash />
+      <FeHash />
     </span>
     <div class="card-header">
       <p>
@@ -141,8 +145,8 @@ function camelCase(str) {
         class="info-toggle"
         @click="expanded = !expanded"
       >
-        <fe-info v-if="!expanded" />
-        <fe-arrow-up v-else />
+        <FeInfo v-if="!expanded" />
+        <FeArrowUp v-else />
       </a>
       <a
         v-if="link"

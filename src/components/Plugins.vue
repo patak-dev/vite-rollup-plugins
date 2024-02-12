@@ -3,6 +3,7 @@ import type { Plugin as RollupPlugin } from '~/types'
 import { shallowRef, ref, watch, computed } from 'vue'
 import { PluginCategory } from '~/util'
 import { plugins } from '../plugins'
+import FeFrowing from '~icons/fe/frowing'
 import Fuse from 'fuse.js'
 
 const results = shallowRef<RollupPlugin[]>([])
@@ -111,7 +112,7 @@ const communityPlugins = computed(() => {
     </PluginCard>
   </div>
   <div v-else class="info not-found">
-    <fe-frowing />
+    <FeFrowing />
     <span>
       No Official Plugins Found
     </span>
@@ -152,7 +153,7 @@ const communityPlugins = computed(() => {
     </PluginCard>
   </div>
   <div v-else class="info not-found">
-    <fe-frowing />
+    <FeFrowing />
     <span>
       No Community Plugins Found
     </span>

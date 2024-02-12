@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useVModel } from '@vueuse/core'
+import FeArrowDown from '~icons/fe/arrow-down'
+import FeSearch from '~icons/fe/search'
 
 const options = [
   'all',
@@ -21,7 +23,7 @@ const status = useVModel(props, 'status', emit)
 <template>
   <div class="container">
     <div class="search-container">
-      <fe-search class="search-icon" />
+      <FeSearch class="search-icon" />
       <input
         v-model="value"
         placeholder="Search Plugins..."
@@ -38,7 +40,7 @@ const status = useVModel(props, 'status', emit)
           {{ option }}
         </option>
       </select>
-      <fe-arrow-down class="select-dropdown-arrow" />
+      <FeArrowDown class="select-dropdown-arrow" />
     </div>
   </div>
 </template>
