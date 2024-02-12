@@ -4,6 +4,9 @@ A compatibility list and test playground
 
 https://vite-rollup-plugins.patak.dev
 
+> [!IMPORTANT]
+> This resource is archived and won't be updated anymore. Vite represents now more than 55% of the npm downloads of Rollup. To properly scale and keep the compat info always up-to-date it makes more sense for Rollup plugins to document their compatibility status directly in their docs.
+ 
 ✅ status for each official plugin
 
 ⚠️ enforce needed badge

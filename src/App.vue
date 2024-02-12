@@ -49,6 +49,9 @@ onMounted(() => {
           rel="noopener"
         >Vite ~5.1.0</a>
       </h3>
+      <p class="archived-notice">
+        Important! This resource is archived and won't be updated anymore. Vite represents now more than 55% of the npm downloads of Rollup. To properly scale and keep the compat info always up-to-date it makes more sense for Rollup plugins to document their compatibility status directly in their docs.
+      </p>
       <a
         class="about-toggle"
         @click="aboutExpanded = !aboutExpanded"
@@ -203,5 +206,15 @@ footer {
 .about-toggle:hover {
   cursor: pointer;
   color: var(--color-text-hover);
+}
+
+.archived-notice {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: var(--color-link);
+  padding: 1em;
+  background-color: var(--color-back-raised-hover);
+  border-radius: 0.5em;
+  border: 2px solid var(--color-link);
 }
 </style>
