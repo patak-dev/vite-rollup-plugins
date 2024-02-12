@@ -5,8 +5,6 @@ import FeHash from '~icons/fe/hash'
 import FeInfo from '~icons/fe/info'
 import FeArrowUp from '~icons/fe/arrow-up'
 
-import Highlight from "./Highlight.vue";
-
 const props = defineProps({
   name: { type: String, required: true },
   docs: { type: String, default: null },
@@ -117,15 +115,7 @@ function camelCase(str) {
             vite.config.js
           </p>
           <Suspense>
-            <template #default>
-              <Highlight
-                :code="viteConfigCode"
-                language="js"
-              />
-            </template>
-            <template #fallback>
-              <pre><code>{{ viteConfigCode }}</code></pre>
-            </template>
+            <pre><code>{{ viteConfigCode }}</code></pre>
           </Suspense>
         </div>
         <div
